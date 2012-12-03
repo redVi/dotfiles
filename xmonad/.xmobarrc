@@ -1,0 +1,45 @@
+Config { font = "-*-ubuntu-light*-*-18-*-*-*-*-*-*-*"
+       , bgColor = "#545E63"
+       , fgColor = "#f2f2f2"
+       , borderColor = "#676f78"
+       , border = FullB
+       , position = TopW L 100
+       , lowerOnStart = True
+       , commands = [
+
+                     Run Network "eth0"
+                                  ["-L"      , "50"        ,
+                                  "-H"       , "500"       ,
+                                  "--normal" , "lightblue" ,
+                                  "--high"   , "lightgreen",
+                                  "-t"       , "<fc=pink>Net:</fc> <rx> KbS"] 10
+
+                    , Run MultiCpu ["-L"       , "4"          ,
+                                    "-H"       , "50"         ,
+                                    "--normal" , "lightgreen" ,
+                                    "--high"   , "orange"] 15
+
+                    , Run Memory ["-t","Mem: <usedratio>%"] 15
+
+                    , Run Date "%a, %b %_d, %Y %H:%M:%S" "date" 15
+
+                    , Run Battery ["-L"       ,"25"                         ,
+                                   "-H"       , "75"                        ,
+                                   "--high"   , "white"                     ,
+                                   "--normal" , "white"                    ,
+                                   "--low"    , "red"                       ,
+                                   "-t"       , "<fc=lightgreen>Batt:</fc> <left>%"] 15
+
+                    , Run CoreTemp ["-t", "<core0>°C",
+                                    "-L", "40",
+                                    "-H", "65",
+                                    "-l", "lightblue",
+                                    "-h", "orange"] 50
+
+                   , Run StdinReader
+                   , Run Kbd [("us", "US"), ("ru", "RU")]
+                   ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %multicpu% <fc=#676f78>|</fc> <fc=lightblue>%coretemp%</fc> <fc=#676f78>|</fc> %memory% <fc=#676f78>|</fc> <fc=#ededed>%eth0%</fc> <fc=#676f78>|</fc> %battery% |<fc=#ee9a00>%date%</fc> %kbd% "
+}

@@ -126,7 +126,8 @@ export PATH="$PATH:/home/$USER/bin"
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
 alias sudo='A=`alias` sudo '
-alias pacman='pacman-color'
+alias pacman='sudo pacman-color'
+alias sc='sudo systemctl'
 alias -s {avi,mpeg,mpg,mov,m2v}=mplayer
 alias -s {odt,doc,sxw,rtf}=openoffice.org
 alias -s {ogg,mp3,wav,wma}=cmus
@@ -136,6 +137,9 @@ alias -s pdf=okular
 export HISTFILE=~/.zsh_history
 export HISTSIZE=100
 export SAVEHIST=$HISTSIZE
+# zsh-syntax-highlighting
+
+source /usr/share/zsh/plugins/zsh-syntax-highlight/zsh-syntax-highlighting.zsh
 
 # Распаковка архивов
 extract () {
@@ -176,6 +180,4 @@ pk () {
  else
  echo "'$1' is not a valid file"
  fi
-
-
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh}
+}

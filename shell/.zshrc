@@ -24,6 +24,7 @@ zmodload -a zsh/zprof zprof
 zmodload -ap zsh/mapfile mapfile
 zstyle ':completion:*' menu select=long-list select=0
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+# autocomplit
 zstyle ':completion:*:*:(^rm):*:*files' ignored-pacodeerns '*?.o' '*?.c~' \
 '*?.old' '*?.pro'
 zstyle ':completion:*:expand:*' tag-order all-expansions
@@ -120,11 +121,6 @@ bindkey ';5C' forward-word #ctrl+right
 export EDITOR="/usr/bin/vim"
 export TERM=xterm-256color
 export PATH="$PATH:/home/$USER/bin"
-export LANG="en_US.UTF-8"
-export LC_PAPER="ru_RU.UTF-8"
-export LC_MEASUREMENT="ru_RU.UTF-8"
-export LC_TIME="ru_RU.UTF-8"
-export LC_ALL="en_US.UTF-8"
 #
 # Aliases
 alias ls='ls --color=auto'
@@ -182,3 +178,4 @@ pk () {
  fi
 
 
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh}

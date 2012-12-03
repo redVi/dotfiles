@@ -1,0 +1,8 @@
+out_to_x no
+out_to_console yes
+background no
+update_interval 60
+total_run_times 0
+
+TEXT
+CPU ${cpu cpu0}% :: Mem $mem :: HDD ${fs_used} :: ${totaldown eth0} / ${totalup eth0} :: ${time %d:%m} :: ${time %H:%M} :: Mail: ${execpi 300 bash  ~/.scripts/gmail.sh} :: BAT ${battery_percent BAT0} %

@@ -1,0 +1,14 @@
+code {
+	color: seaGreen;
+	overflow: auto;
+	display: block;
+	heigth: auto;
+	max-height: 200px;
+	white-space: normal;
+	padding-top: 5px;
+	font: 0.9em Monaco, "Andale Mono", "Courier New", Courier, mono;
+	line-height: 1.3em;
+	margin: 2px 0;
+	border: 1px solid #BCD;
+	background-color: white;
+}

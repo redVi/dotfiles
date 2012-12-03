@@ -128,20 +128,21 @@ alias grep='grep --colour=auto'
 alias sudo='A=`alias` sudo '
 alias pacman='sudo pacman-color'
 alias sc='sudo systemctl'
+alias nc='sudo netcfg'
 alias -s {avi,mpeg,mpg,mov,m2v}=mplayer
 alias -s {odt,doc,sxw,rtf}=openoffice.org
 alias -s {ogg,mp3,wav,wma}=cmus
-alias -s pdf=okular
 
 #  History
 export HISTFILE=~/.zsh_history
 export HISTSIZE=100
 export SAVEHIST=$HISTSIZE
-# zsh-syntax-highlighting
 
+# zsh-syntax-highlighting from AUR
 source /usr/share/zsh/plugins/zsh-syntax-highlight/zsh-syntax-highlighting.zsh
 
 # Распаковка архивов
+# example: extract file
 extract () {
  if [ -f $1 ] ; then
  case $1 in
@@ -165,6 +166,7 @@ extract () {
 }
 
 # Запаковать архив
+# example: pk tar file
 pk () {
  if [ $1 ] ; then
  case $1 in

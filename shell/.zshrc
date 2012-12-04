@@ -106,11 +106,17 @@ alias nc='sudo netcfg'
 alias -s {avi,mpeg,mpg,mov,m2v}=mplayer
 alias -s {odt,doc,sxw,rtf}=openoffice.org
 alias -s {ogg,mp3,wav,wma}=cmus
+autoload -U pick-web-browser
+alias -s {html,htm}=chromium
 
 #  History
 export HISTFILE=~/.zsh_history
 export HISTSIZE=100
 export SAVEHIST=$HISTSIZE
+setopt APPEND_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
 
 # zsh-syntax-highlighting from AUR
 source /usr/share/zsh/plugins/zsh-syntax-highlight/zsh-syntax-highlighting.zsh

@@ -9,7 +9,7 @@ compinit
 promptinit
 [[ -a $(whence -p pacman-color) ]] && compdef _pacman pacman-color=pacman
 setopt CORRECT_ALL
-SPROMPT="Ошибка! Вы хотели ввести %r вместо %R? ([Y]es/[N]o/[E]dit/[A]bort) "
+SPROMPT="Ошибка! ввести %r вместо %R? ([Y]es/[N]o/[E]dit/[A]bort) "
 setopt autocd
 autoload -U incremental-complete-word
 zle -N incremental-complete-word
@@ -90,34 +90,8 @@ bindkey -e
 bindkey '\e[3~' delete-char # del
 bindkey ';5D' backward-word # ctrl+left
 bindkey ';5C' forward-word #ctrl+right
-## Установка привычного поведения клавиш Delete, Home, End и т.д.:
-#case $TERM in
-#    linux)
-#    bindkey "^[[2~" yank
-#    bindkey "^[[3~" delete-char
-#    bindkey "^[[5~" up-line-or-history
-#    bindkey "^[[6~" down-line-or-history
-#    bindkey "^[[1~" beginning-of-line
-#    bindkey "^[[4~" end-of-line
-#    bindkey "^[e" expand-cmd-path ## C-e for expanding path of typed command
-#    bindkey "^[[A" up-line-or-search ## up arrow for back-history-search
-#    bindkey "^[[B" down-line-or-search ## down arrow for fwd-history-search
-#    bindkey " " magic-space ## do history expansion on space
-#    ;;
-#    *xterm*|rxvt|(dt|k|E)term)
-#    bindkey "^[[2~" yank
-#    bindkey "^[[3~" delete-char
-#    bindkey "^[[5~" up-line-or-history
-#    bindkey "^[[6~" down-line-or-history
-#    bindkey "^[[7~" beginning-of-line
-#    bindkey "^[[8~" end-of-line
-#    bindkey "^[e" expand-cmd-path ## C-e for expanding path of typed command
-#    bindkey "^[[A" up-line-or-search ## up arrow for back-history-search
-#    bindkey "^[[B" down-line-or-search ## down arrow for fwd-history-search
-#    bindkey " " magic-space ## do history expansion on space
-#    ;;
-#esac
 
+# Export
 export EDITOR="/usr/bin/vim"
 export TERM=xterm-256color
 export PATH="$PATH:/home/$USER/bin"

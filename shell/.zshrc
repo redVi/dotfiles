@@ -108,6 +108,8 @@ alias -s {odt,doc,sxw,rtf}=openoffice.org
 alias -s {ogg,mp3,wav,wma}=cmus
 autoload -U pick-web-browser
 alias -s {html,htm}=chromium
+alias -s sh=sh
+alias -s py=python
 
 #  History
 export HISTFILE=~/.zsh_history

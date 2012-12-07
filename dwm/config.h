@@ -3,11 +3,11 @@
 /* appearance */
 static const char font[]            = "-*-dejavu sans-medium-r-*-*-9-*-*-*-*-*-*-ru";
 static const char normbordercolor[] = "#8282ff";
-static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#bbbbbb";
+static const char normbgcolor[]     = "#cccccc";
+static const char normfgcolor[]     = "#303030";
 static const char selbordercolor[]  = "#3399ff";
-static const char selbgcolor[]      = "#333333";
-static const char selfgcolor[]      = "#eeeeee";
+static const char selbgcolor[]      = "#b2b2b2";
+static const char selfgcolor[]      = "#303030";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
@@ -20,9 +20,9 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",      NULL,       NULL,       0,            True,        -1 },
 	{ "Firefox",   NULL,       NULL,       1 << 1,       False,       -1 },
-        { "Chromium",  NULL,       NULL,       1 << 1,       False,       -1 },
-        { "Pidgin",    NULL,       NULL,       1 << 2,       True,        -1 },
-        { "eclipse",   NULL,       NULL,       1 << 4,       True,        -1 },
+    { "Chromium",  NULL,       NULL,       1 << 1,       False,       -1 },
+    { "Pidgin",    NULL,       NULL,       1 << 2,       True,        -1 },
+    { "eclipse",   NULL,       NULL,       1 << 4,       True,        -1 },
 };
 
 /* layout(s) */
@@ -50,26 +50,27 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "terminal", NULL };
+static const char *termcmd[]  = { "sakura", NULL };
 static const char *idecmd[]   = { "eclipse",  NULL };
 static const char *browsercmd[] = { "chromium",  NULL };
 static const char *homecmd[] = { "spacefm",  NULL };
 static const char *writecmd[] = { "geany",  NULL };
-static const char *torrent[] = {"terminal", "-e", "rtorrent", NULL};
+static const char *torrent[] = {"sakura", "-e", "rtorrent", NULL};
 static const char *scrot[] = {"scrot", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-        { MODKEY,                       XK_e,      spawn,          {.v = idecmd }  },
-        { MODKEY,                       XK_b,      spawn,          {.v = browsercmd } },
-        { MODKEY,                       XK_s,      spawn,          {.v = homecmd }  },
-        { MODKEY,                       XK_w,      spawn,          {.v = writecmd } },
-        { MODKEY,                       XK_Print,  spawn,          {.v = scrot} },
-        { MODKEY,                       XK_r,      spawn,          {.v = torrent} },
-        { MODKEY,                       XK_i,      spawn,          {.v = (const char*[]){"mirage"}}},
-        { MODKEY,                       XK_g,      spawn,          {.v = (const char*[]){"pidgin"}}},
+    { MODKEY,                       XK_e,      spawn,          {.v = idecmd }  },
+    { MODKEY,                       XK_b,      spawn,          {.v = browsercmd } },
+    { MODKEY,                       XK_h,      spawn,          {.v = homecmd }  },
+    { MODKEY,                       XK_w,      spawn,          {.v = writecmd } },
+    { MODKEY,                       XK_Print,  spawn,          {.v = scrot} },
+    { MODKEY,                       XK_r,      spawn,          {.v = torrent} },
+    { MODKEY,                       XK_i,      spawn,          {.v = (const char*[]){"mirage"}}},
+    { MODKEY,                       XK_g,      spawn,          {.v = (const char*[]){"pidgin"}}},
+    { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = (const char*[]){"gmrun"}}},
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      focusstack,     {.i = -1 } },

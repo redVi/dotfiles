@@ -1,3 +1,5 @@
+"Font
+set guifont=Monospace\ 8
 "Включаем распознавание типов файлов и типо-специфичные плагины:
 filetype on
 filetype plugin on
@@ -9,10 +11,11 @@ set expandtab "Ставим табы пробелами
 set softtabstop=4 "4 пробела в табе
 "Автоотступ
 set autoindent
+"Перечитать измененные файлы автоматически
+set autoread
 "Подсвечиваем все
 let python_highlight_all = 1
 "Включаем 256 цветов в терминале
-"Нужно во многих терминалах, например в gnome-terminal
 set t_Co=256
 "Перед сохранением вырезаем пробелы на концах (только в .py файлах)
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
@@ -26,18 +29,22 @@ imap ( ()<LEFT>
 imap { {}<LEFT>
 imap < <><LEFT>
 "Тёмный background терминала
-set background=dark
+"set background=dark
 "Отображать символы табуляции
 set list lcs=tab:>-,nbsp:-
 "fdm, foldopen
 set fdm=syntax
-set foldopen=all
+set foldopen=all "автоматически открывать блоки
+set foldenable " сворачивать код в блоки
+set foldmethod=indent "определять блок на основе отступов
+set foldlevel=1 "первый уровень блока открыт
 syntax on "Включить подсветку синтаксиса
 set nu "Включить нумерацию строк
 set mousehide "Спрятать курсор мыши при наборе текста
 set termencoding=utf-8 "Кодировка терминала
-set novisualbell "Отключить мигание
+"set novisualbell "Отключить мигание
 set t_vb= "Отключить beep
+set visualbell " Мигать курсором при ошибках
 "Удобное поведение backspace
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 "Отключаем черты на табах
@@ -53,6 +60,7 @@ set noswapfile
 set encoding=utf-8 " Кодировка файлов по умолчанию
 set fileencodings=utf8,cp1251 " Возможные кодировки файлов, если файл не в unicode кодировке,
 " то будет использоваться cp1251
+set title " показывать имя буфера в заголовке терминала
 " Цветовая схема из ~/.vim/colors/
 :colorscheme darkdevil
 "Плагины
@@ -61,7 +69,6 @@ set fileencodings=utf8,cp1251 " Возможные кодировки файло
 ":clist посмотреть полный список ошибок компиляции
 ":cnext переход к следующей ошибке
 autocmd BufNewFile,BufRead *.py compiler python
-"Для просмотра файловой системы вволим :Vex
 "Плагин Project http://www.vim.org/scripts/script.php?script_id=69
 "Распаковать в ~/.vim/
 "Запустить командой :Project
@@ -69,3 +76,4 @@ autocmd BufNewFile,BufRead *.py compiler python
 "создать .vim/templates/template.* с необходимыми шаблонами
 :autocmd BufNewFile  *.py      0r ~/.vim/templates/template.py
 :autocmd BufNewFile  *.html      0r ~/.vim/templates/template.html
+:autocmd BufNewFile *.c 0r ~/.vim/templates/template.c

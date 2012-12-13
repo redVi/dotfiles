@@ -121,7 +121,19 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 
 # zsh-syntax-highlighting from AUR
-source /usr/share/zsh/plugins/zsh-syntax-highlight/zsh-syntax-highlighting.zsh
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES=(
+        'alias'           'fg=153,bold'
+        'builtin'         'fg=153'
+        'function'        'fg=166'
+        'command'         'fg=153'
+        'precommand'      'fg=153, underline'
+        'hashed-commands' 'fg=153'
+        'path'            'underline'
+        'globbing'        'fg=166'
+)
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
 # Распаковка архивов
 # example: extract file

@@ -3,11 +3,11 @@
 /* appearance */
 static const char font[]            = "-*-dejavu sans-medium-r-*-*-9-*-*-*-*-*-*-ru";
 static const char normbordercolor[] = "#8282ff";
-static const char normbgcolor[]     = "#cccccc";
-static const char normfgcolor[]     = "#303030";
+static const char normbgcolor[]     = "#222222";
+static const char normfgcolor[]     = "#bbbbbb";
 static const char selbordercolor[]  = "#3399ff";
-static const char selbgcolor[]      = "#b2b2b2";
-static const char selfgcolor[]      = "#303030";
+static const char selbgcolor[]      = "#606060";
+static const char selfgcolor[]      = "#eeeeee";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
@@ -54,7 +54,7 @@ static const char *termcmd[]  = { "sakura", NULL };
 static const char *idecmd[]   = { "eclipse",  NULL };
 static const char *browsercmd[] = { "chromium",  NULL };
 static const char *homecmd[] = { "spacefm",  NULL };
-static const char *writecmd[] = { "geany",  NULL };
+static const char *writecmd[] = { "subl",  NULL };
 static const char *torrent[] = {"sakura", "-e", "rtorrent", NULL};
 static const char *scrot[] = {"scrot", NULL};
 

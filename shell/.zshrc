@@ -38,10 +38,7 @@ zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
-
-
-
+#
 # Colorize red for root, green for normal users
 if [[ "$USER" == "root" ]]; then
   COLOR="%{[0m[01;31m%}"
@@ -103,7 +100,7 @@ alias sudo='A=`alias` sudo '
 alias pacman='sudo pacman-color'
 alias sc='sudo systemctl'
 alias nc='sudo netcfg'
-alias -s {avi,mpeg,mpg,mov,m2v}=mplayer
+alias -s {avi,mkv,mpeg,mpg,mov,m2v,mp4,wmv}=mplayer
 alias -s {odt,doc,sxw,rtf}=openoffice.org
 alias -s {ogg,mp3,wav,wma}=cmus
 autoload -U pick-web-browser

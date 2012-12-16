@@ -1,7 +1,6 @@
-#for dwm user##
-# out_to_x no
-# out_to_console yes
-#------------##
+#for dwm user
+out_to_x no
+out_to_console yes
 
 background no
 update_interval 60
@@ -40,6 +39,6 @@ use_spacer none
 minimum_size 512 1
 
 TEXT
-${color FFFFFF} Date: ${color 8F9D6A}${time %d/%m/%y}${color FFFFFF}  Time: ${color 8F9D6A}${time %H:%M}${color 99ccff}  || ${color FFFFFF} Cpu: ${color 8F9D6A}${cpu}%${color FFFFFF}  Ram: ${color 8F9D6A}${memperc}%${color 99ccff}  || ${color FFFFFF} Signal: ${color 8F9D6A}${wireless_link_qual wlan0}%${color FFFFFF}  Up: ${color 8F9D6A}${totalup wlan0} ${color FFFFFF}  Down: ${color 8F9D6A}${totaldown wlan0} ${color 99ccff} || ${color FFFFFF} Mail: ${color 8F9D6A}${execpi 300 bash  ~/.scripts/gmail.sh} ${color 99ccff}|| ${color FFFFFF}Bat: ${color 8F9D6A}${battery_percent BAT0} %
+${color FFFFFF} Date: ${color 8F9D6A}${time %d/%m/%y}${color FFFFFF}  Time: ${color 8F9D6A}${time %H:%M}${color 99ccff}  || ${color FFFFFF} Cpu: ${color 8F9D6A}${cpu}%${color FFFFFF}  Ram: ${color 8F9D6A}${memperc}%${color 99ccff}  || ${color FFFFFF}  Up: ${color 8F9D6A}${totalup eth0} ${color FFFFFF}  Down: ${color 8F9D6A}${totaldown eth0} ${color 99ccff} || ${color FFFFFF} Mail: ${color 8F9D6A}${execpi 300 bash  ~/.scripts/gmail.sh} ${color 99ccff}|| ${color FFFFFF}Bat: ${color 8F9D6A}${battery_percent BAT0} %
 
 

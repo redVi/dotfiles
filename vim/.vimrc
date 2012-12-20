@@ -27,7 +27,7 @@ autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,
 imap [ []<LEFT>
 imap ( ()<LEFT>
 imap { {}<LEFT>
-imap < <><LEFT>
+"imap < <><LEFT>
 "Тёмный background терминала
 "set background=dark
 "Отображать символы табуляции
@@ -77,3 +77,5 @@ autocmd BufNewFile,BufRead *.py compiler python
 :autocmd BufNewFile  *.py      0r ~/.vim/templates/template.py
 :autocmd BufNewFile  *.html      0r ~/.vim/templates/template.html
 :autocmd BufNewFile *.c 0r ~/.vim/templates/template.c
+"xml for vim http://www.vim.org/scripts/script.php?script_id=301
+autocmd BufNewFile,BufRead *.xml source ~/.vim/plugin/xml.vim

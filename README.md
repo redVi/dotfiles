@@ -1,4 +1,4 @@
 dotfiles
 ========
 
-config files for xmonad, dwm, conky, vim and other
+config files for xmonad, conky, vim, shell and other

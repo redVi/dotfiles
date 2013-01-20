@@ -174,3 +174,7 @@ pk () {
  echo "'$1' is not a valid file"
  fi
 }
+
+# Using cache
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache'

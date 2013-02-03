@@ -1,8 +1,49 @@
+#for dwm user
 out_to_x no
 out_to_console yes
+
 background no
 update_interval 60
 total_run_times 0
 
+own_window  no
+own_window_transparent no
+own_window_type override
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager
+
+#borders
+draw_borders no
+draw_graph_borders no
+border_width 0
+
+#shades
+draw_shades no
+
+#position
+alignment top_right
+
+#colour
+default_color  8f8f8f
+#default_shade_color 000000
+#own_window_colour 262729
+own_window_colour 2D2D2D
+
+#font
+use_xft yes
+xftfont PragmataTT:size=8:antialias=true
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+#to prevent window from moving
+use_spacer none
+minimum_size 512 1
+
 TEXT
-CPU ${cpu cpu0}% :: Mem $mem :: HDD ${fs_used} :: ${totaldown eth0} / ${totalup eth0} :: ${time %d:%m} :: ${time %H:%M} :: Mail: ${execpi 300 bash  ~/.scripts/gmail.sh} :: BAT ${battery_percent BAT0} %
+${execi 10000 echo -e "\x02"}${time %d:%m:%y} ::${execi 10000 echo -e "\x01"}\
+${time %H:%M} :: \
+${execi 10000 echo -e "\x02"}Down: ${totaldown eth0} ::${execi 10000 echo -e "\x01"}\
+${execpi 300 bash  ~/.scripts/gmail.sh} :: \
+${execi 10000 echo -e "\x02"}Vol:${mixer Vol}% ::${execi 10000 echo -e "\x01"}\
+CPU:${acpitemp}°C ::\
+${execi 10000 echo -e "\x02"}Bat:${battery_percent BAT0} %

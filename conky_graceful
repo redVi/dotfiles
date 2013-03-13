@@ -1,0 +1,55 @@
+alignment middle_left
+use_xft yes
+xftfont 123:size=8
+xftalpha 0.1
+update_interval 30
+total_run_times 0
+own_window_argb_visual no
+own_window_argb_value 110
+own_window_class Conky
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_transparent yes
+own_window_type override 	
+own_window_type desktop
+own_window yes
+double_buffer yes
+minimum_size 250 5
+maximum_width 820
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color white
+default_shade_color red
+default_outline_color green
+gap_x 50
+gap_y -300 #вертикальное выравнивание
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 1
+override_utf8_locale yes
+use_spacer yes
+
+
+TEXT
+${voffset 10}${color EAEAEA}${font Caviar Dreams:pixelsize=120}${time %H:%M}${font}${voffset -84}${offset 10}${color a3253d}${font Caviar Dreams:pixelsize=42}${time %d} ${voffset -15}${color EAEAEA}${font Caviar Dreams:pixelsize=22}${time  %B} ${time %Y}${font}${voffset 15}${font Caviar Dreams:pixelsize=58}${offset -148}${time %A}${font}
+${voffset 20}${offset 12}${font Caviar Dreams:pixelsize=14}${color a3253d}HD ${offset 9}$color${fs_free /} / ${fs_size /}${offset 28}${color a3253d}RAM ${offset 9}$color$mem / $memmax${offset 20}${color a3253d}CPU ${offset 9}$color${cpu cpu0}% ${offset 24}${color a3253d}MAIL ${offset 9}$color${execpi 300 bash  ~/.scripts/gmail.sh} ${offset 24}${color a3253d}BAT ${offset 9}$color${battery_percent BAT0} %
+
+#${font Caviar Dreams:size=8,weight:normal}${color3}${goto 150}${top_mem mem 1}%${goto 200}${font Caviar Dreams:size=7,weight:normal}${color1}${top_mem name 1} ${goto 300}#${font Caviar Dreams:size=9,weight:normal}${color1}${top name 1}${goto 470}${color a3253d}${top cpu 1}%
+
+#${font Caviar Dreams:size=8,weight:normal}${color3}${goto 150}${top_mem mem 2}%${goto 200}${font Caviar Dreams:size=7,weight:normal}${color2}${top_mem name 2} ${goto 300}#${font Caviar Dreams:size=9,weight:normal}${color2}${top name 2}${goto 470}${color a3253d}${top cpu 2}%
+
+#${font Caviar Dreams:size=8,weight:normal}${color3}${goto 150}${top_mem mem 3}%${goto 200}${font Caviar Dreams:size=7,weight:normal}${color3}${top_mem name 3} ${goto 300}#${font Caviar Dreams:size=9,weight:normal}${color3}${top name 3}${goto 470}${color a3253d}${top cpu 3}%
+
+#${goto 300}${font Caviar Dreams:size=8,weight:normal}${color a3253d}${threads} ${color1}процессов запущено 
+
+
+
+
+
+
+
+
+
+

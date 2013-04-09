@@ -11,5 +11,8 @@
 <title>Заголовок</title>
 </head>
 <body>
+    <?php
+        echo "hello!\n"
+    ?>
 </body>
-</html>
+<html>

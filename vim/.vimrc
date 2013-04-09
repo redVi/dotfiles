@@ -76,6 +76,7 @@ autocmd BufNewFile,BufRead *.py compiler python
 "создать .vim/templates/template.* с необходимыми шаблонами
 :autocmd BufNewFile  *.py      0r ~/.vim/templates/template.py
 :autocmd BufNewFile  *.html      0r ~/.vim/templates/template.html
+:autocmd BufNewFile  *.php      0r ~/.vim/templates/template.php
 :autocmd BufNewFile *.c 0r ~/.vim/templates/template.c
 "xml for vim http://www.vim.org/scripts/script.php?script_id=301
 autocmd BufNewFile,BufRead *.xml source ~/.vim/plugin/xml.vim

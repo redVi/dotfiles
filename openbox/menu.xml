@@ -35,15 +35,34 @@
 </menu>
 
 <menu id="apps-net-menu" label="Internet">
-  <item label="Google-Chrome">
+  <item label="Firefox">
     <action name="Execute">
-      <command>google-chrome</command>
+      <command>firefox-bin</command>
       <startupnotify>
         <enabled>yes</enabled>
-        <wmclass>google-chrome</wmclass>
+        <wmclass>firefox</wmclass>
+      </startupnotify>
+    </action>
+</item>
+  <item label="Transmission">
+    <action name="Execute">
+      <command>transmission-gtk</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>transmission</wmclass>
       </startupnotify>
     </action>
   </item>
+  <item label="Skype">
+   <action name="Execute">
+     <command>skype</command>
+     <startupnotify>
+       <enabled>yes</enabled>
+       <wmclass>skype</wmclass>
+     </startupnotify>
+   </action>
+  </item>
+ 
   <item label="Pidgin Instant Messenger">
     <action name="Execute">
       <command>pidgin</command>
@@ -52,63 +71,9 @@
       </startupnotify>
     </action>
   </item>
-  <item label="XChat">
-    <action name="Execute">
-      <command>xchat</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
-</menu>
-
-<menu id="apps-office-menu" label="Office">
-  <item label="LibreOffice Base">
-    <action name="Execute">
-      <command>loffice -base</command>
-    </action>
-  </item>
-  <item label="OpenOffice Calc">
-    <action name="Execute">
-      <command>loffice -calc</command>
-    </action>
-  </item>
-  <item label="OpenOffice Draw">
-    <action name="Execute">
-      <command>loffice -draw</command>
-    </action>
-  </item>
-  <item label="OpenOffice Impress">
-    <action name="Execute">
-      <command>loffice -impress</command>
-    </action>
-  </item>
-  <item label="OpenOffice Math">
-    <action name="Execute">
-      <command>loffice -math</command>
-    </action>
-  </item>
-  <item label="OpenOffice Printer Administration">
-    <action name="Execute">
-      <command>loffice-printeradmin</command>
-    </action>
-  </item>
-  <item label="OpenOffice Writer">
-    <action name="Execute">
-      <command>loffice -writer</command>
-    </action>
-  </item>
 </menu>
 
 <menu id="apps-multimedia-menu" label="Multimedia">
-  <item label="CMUS">
-    <action name="Execute">
-      <command>cmus</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
   <item label="MPlayer">
     <action name="Execute">
       <command>mplayer</command>
@@ -156,14 +121,6 @@
       </startupnotify>
     </action>
   </item>
-  <item label="Dia Diagram Editor">
-    <action name="Execute">
-      <command>dia</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
   <item label="Inkscape">
     <action name="Execute">
       <command>inkscape</command>
@@ -173,7 +130,6 @@
     </action>
   </item>
 </menu>
-
 <menu id="system-menu" label="System">
   <item label="Openbox Configuration Manager">
     <action name="Execute">
@@ -207,7 +163,6 @@
   <menu id="apps-editors-menu"/>
   <menu id="apps-graphics-menu"/>
   <menu id="apps-net-menu"/>
-  <menu id="apps-office-menu"/>
   <menu id="apps-multimedia-menu"/>
   <menu id="apps-term-menu"/>
   <menu id="apps-fileman-menu"/>

@@ -1,5 +1,5 @@
-alignment top_right
-#alignment bottom_left
+#alignment top_right
+alignment bottom_left
 use_xft yes
 xftfont 123:size=8
 xftalpha 0.1
@@ -14,19 +14,16 @@ own_window_type desktop
 own_window yes
 double_buffer yes
 minimum_size 250 5
-maximum_width 650
-draw_shades no 
+maximum_width 750
+draw_shades yes 
 draw_outline no
 draw_borders no
 draw_graph_borders no
 default_color white
 default_shade_color black
 default_outline_color black
-# gap_y ниже,выше --- c минусом:выше, с плюсом:ниже
-# gap_x правее, левее --- с плюсом:левее, с минусом:правее
-# 0 --- у самого края
-gap_x 20
-gap_y -15 
+gap_x 15
+gap_y 30 
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
@@ -37,7 +34,8 @@ use_spacer yes
 
 TEXT
 ${voffset 10}${color EAEAEA}${font Caviar Dreams:pixelsize=120}${time %H:%M}${font}${voffset -84}${offset 10}${color d88c00}${font Caviar Dreams:pixelsize=42}${time %d} ${voffset -15}${color EAEAEA}${font Caviar Dreams:pixelsize=22}${time  %B} ${time %Y}${font}${voffset 15}${font Caviar Dreams:pixelsize=58}${offset -148}${time %A}${font}
-${voffset 20}${offset 12}${font Caviar Dreams:pixelsize=14}${color d88c00}KERNEL ${offset 9}$color${kernel}${offset 28}${color d88c00}RAM ${offset 9}$color$mem / $memmax${offset 20}${color d88c00}CPU ${offset 9}$color${cpu cpu0}% ${offset 24}${color d88c00}MAIL ${offset 9}$color${execpi 300 bash  ~/.scripts/gmail.sh} ${offset 24}${color d88c00}BAT ${offset 9}$color${battery_percent BAT0} %
+${voffset 20}${offset 12}${font Caviar Dreams:pixelsize=14}${color d88c00}KERNEL ${offset 9}$color${kernel}${offset 24}${color d88c00}CPU ${offset 9}$color${cpu cpu0}% ${offset 24}${color d88c00}MAIL ${offset 9}$color${execpi 300 bash  ~/.scripts/gmail.sh} ${offset 24}${color d88c00}BAT ${offset 9}$color${battery_percent BAT0} % ${offset 24}${color d88c00}RAM ${offset 9}$color$mem / $memmax
+
 
 
 

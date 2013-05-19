@@ -34,7 +34,7 @@ use_spacer yes
 
 TEXT
 ${voffset 10}${color EAEAEA}${font Caviar Dreams:pixelsize=120}${time %H:%M}${font}${voffset -84}${offset 10}${color d88c00}${font Caviar Dreams:pixelsize=42}${time %d} ${voffset -15}${color EAEAEA}${font Caviar Dreams:pixelsize=22}${time  %B} ${time %Y}${font}${voffset 15}${font Caviar Dreams:pixelsize=58}${offset -148}${time %A}${font}
-${voffset 20}${offset 12}${font Caviar Dreams:pixelsize=14}${color d88c00}KERNEL ${offset 9}$color${kernel}${offset 24}${color d88c00}CPU ${offset 9}$color${cpu cpu0}% ${offset 24}${color d88c00}MAIL ${offset 9}$color${execpi 300 bash  ~/.scripts/gmail.sh} ${offset 24}${color d88c00}BAT ${offset 9}$color${battery_percent BAT0} % ${offset 24}${color d88c00}Vol: ${color}${mixer Vol}% ${offset 24}${color d88c00}RAM ${offset 9}$color$mem / $memmax
+${voffset 20}${offset 12}${font Caviar Dreams:pixelsize=14}${color d88c00}KERNEL ${offset 9}$color${kernel}${offset 24}${color d88c00}CPU ${offset 9}$color${cpu cpu0}% ${offset 24}${color d88c00}MAIL ${offset 9}$color${execpi 300 bash  ~/.scripts/gmail.sh} ${offset 24}${color d88c00}BAT ${offset 9}$color${battery_percent BAT0} % ${offset 24}${color d88c00}VOL ${offset 9}${color}${mixer Vol}% ${offset 24}${color d88c00}RAM ${offset 9}$color$mem / $memmax
 
 
 

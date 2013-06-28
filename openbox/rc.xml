@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>212 M S B</name>
+    <name>Zukitwo</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -54,11 +54,11 @@
       S: shade (roll up/down)
       D: omnipresent (on all desktops).
   -->
-    <keepBorder>yes</keepBorder>
+    <keepBorder>no</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
       <name>Sans</name>
-      <size>11</size>
+      <size>9</size>
       <!-- font size in points -->
       <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
@@ -67,7 +67,7 @@
     </font>
     <font place="InactiveWindow">
       <name>Sans</name>
-      <size>11</size>
+      <size>9</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -76,7 +76,7 @@
     </font>
     <font place="MenuHeader">
       <name>Sans</name>
-      <size>11</size>
+      <size>9</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -85,7 +85,7 @@
     </font>
     <font place="MenuItem">
       <name>Sans</name>
-      <size>11</size>
+      <size>9</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -94,7 +94,7 @@
     </font>
     <font place="ActiveOnScreenDisplay">
       <name>Sans</name>
-      <size>11</size>
+      <size>9</size>
       <!-- font size in points -->
       <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
@@ -103,9 +103,9 @@
     </font>
     <font place="InactiveOnScreenDisplay">
       <name>Sans</name>
-      <size>11</size>
+      <size>9</size>
       <!-- font size in points -->
-      <weight>Bold</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
@@ -135,7 +135,7 @@
   </desktops>
   <resize>
     <drawContents>yes</drawContents>
-    <popupShow>Nonpixel</popupShow>
+    <popupShow>NonPixel</popupShow>
     <!-- 'Always', 'Never', or 'Nonpixel' (xterms and such) -->
     <popupPosition>Center</popupPosition>
     <!-- 'Center', 'Top', or 'Fixed' -->
@@ -204,25 +204,25 @@
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Left">
+    <keybind key="S-W-Left">
       <action name="SendToDesktop">
         <to>left</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Right">
+    <keybind key="S-W-Right">
       <action name="SendToDesktop">
         <to>right</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Up">
+    <keybind key="S-W-Up">
       <action name="SendToDesktop">
         <to>up</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Down">
+    <keybind key="S-W-Down">
       <action name="SendToDesktop">
         <to>down</to>
         <wrap>no</wrap>
@@ -250,7 +250,12 @@
     </keybind>
     <keybind key="W-5">
       <action name="GoToDesktop">
-        <to>4</to>
+        <to>5</to>
+      </action>
+    </keybind>
+    <keybind key="W-6">
+      <action name="GoToDesktop">
+        <to>6</to>
       </action>
     </keybind>
     <keybind key="W-d">
@@ -351,16 +356,16 @@
         <command>sakura</command>
       </action>
     </keybind>
-    <keybind key="W-S-B">
+    <keybind key="W-B">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>Google-Chrome</name>
+          <name>Firefox</name>
         </startupnotify>
-        <command>google-chrome</command>
+        <command>firefox-bin</command>
       </action>
     </keybind>
-    <keybind key="W-S-P">
+    <keybind key="W-P">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -369,7 +374,7 @@
         <command>gmrun</command>
       </action>
     </keybind>
-    <keybind key="W-S-G">
+    <keybind key="W-G">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -378,7 +383,7 @@
         <command>pidgin</command>
       </action>
     </keybind>
-    <keybind key="W-S-W">
+    <keybind key="W-W">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -387,7 +392,7 @@
         <command>subl</command>
       </action>
     </keybind>
-    <keybind key="W-S-H">
+    <keybind key="W-H">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -396,7 +401,7 @@
         <command>spacefm</command>
       </action>
     </keybind>
-    <keybind key="W-S-Print">
+    <keybind key="Print">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -405,16 +410,16 @@
         <command>scrot</command>
       </action>
     </keybind>
-    <keybind key="W-S-R">
+    <keybind key="W-R">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>rtorrent</name>
+          <name>transmission-gtk</name>
         </startupnotify>
-        <command>sakura -e "rtorrent"</command>
+        <command>transmission-gtk</command>
       </action>
     </keybind>
-    <keybind key="W-S-I">
+    <keybind key="W-I">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -773,9 +778,9 @@
   <!-- show the manage desktops section in the client-list-(combined-)menu -->
 </menu>
   <applications>
-  <application class="*">
-    <decor>no</decor>
-  </application>
+    <application class="*">
+      <decor>no</decor>
+    </application>
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.

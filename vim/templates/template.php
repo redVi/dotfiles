@@ -12,7 +12,7 @@
 </head>
 <body>
     <?php
-        echo "hello!\n"
+        echo "hello!\n";
     ?>
 </body>
 <html>

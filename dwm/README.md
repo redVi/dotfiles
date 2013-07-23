@@ -23,4 +23,4 @@ restart<br/>
 
 ------------
 <p>example:</p>
-[dwm](http://fc05.deviantart.net/fs70/i/2013/001/d/e/arch_linux__dwm__december_2012_by_redvi9-d5pkhy7.png "dwm")
+![dwm](http://fc05.deviantart.net/fs70/i/2013/001/d/e/arch_linux__dwm__december_2012_by_redvi9-d5pkhy7.png "dwm")

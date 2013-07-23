@@ -1,0 +1,55 @@
+# $Id: PKGBUILD 60970 2011-12-19 21:33:58Z spupykin $
+# Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
+# Contributor: Dag Odenhall <dag.odenhall@gmail.com>
+# Contributor: Grigorios Bouzakis <grbzks@gmail.com>
+
+pkgname=dwm
+pkgver=6.0
+pkgrel=1
+pkgdesc="A dynamic window manager for X"
+url="http://dwm.suckless.org"
+arch=('i686' 'x86_64')
+license=('MIT')
+options=(zipman)
+depends=('libx11' 'libxinerama')
+install=dwm.install
+source=($pkgname-$pkgver.tar.gz
+	config.h
+	dwm.desktop
+    $pkgname-$pkgver-systray.diff
+    $pkgname-$pkgver-moveresize.diff
+    $pkgname-$pkgver-attachabove.diff
+    $pkgname-$pkgver-autostart.diff
+    $pkgname-$pkgver-save_floats.diff)
+
+build() {
+  cd $srcdir/$pkgname-$pkgver
+  cp $srcdir/config.h config.h
+  patch -Np1 < ../$pkgname-$pkgver-systray.diff
+  patch -Np1 < ../$pkgname-$pkgver-moveresize.diff
+  patch -Np1 < ../$pkgname-$pkgver-attachabove.diff
+  patch -Np1 < ../$pkgname-$pkgver-autostart.diff
+  patch -Np1 < ../$pkgname-$pkgver-save_floats.diff
+  sed -i 's/CPPFLAGS =/CPPFLAGS +=/g' config.mk
+  sed -i 's/^CFLAGS = -g/#CFLAGS += -g/g' config.mk
+  sed -i 's/^#CFLAGS = -std/CFLAGS += -std/g' config.mk
+  sed -i 's/^LDFLAGS = -g/#LDFLAGS += -g/g' config.mk
+  sed -i 's/^#LDFLAGS = -s/LDFLAGS += -s/g' config.mk
+  make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
+}
+
+package() {
+  cd $srcdir/$pkgname-$pkgver
+  make PREFIX=/usr DESTDIR=$pkgdir install
+  install -m644 -D LICENSE $pkgdir/usr/share/licenses/$pkgname/LICENSE
+  install -m644 -D README $pkgdir/usr/share/doc/$pkgname/README
+  install -m644 -D $srcdir/dwm.desktop $pkgdir/usr/share/xsessions/dwm.desktop
+}
+md5sums=('36163e08f980416b3c470728f344af7e'
+         '15eb2295bc81f806e16497fb1ba41b49'
+         '939f403a71b6e85261d09fc3412269ee'
+         '0a527af3bcfbf628ed118bdf86521161'
+         '90891db656215ab43ccbd9d12a834b32'
+         'ec8cb48d437ff14589d5a6d4b8d4163b'
+         '109b4ffba599a3d60dcd340b61ec5081'
+         '44d0c475358e5653c302c0f5b2d12f28')

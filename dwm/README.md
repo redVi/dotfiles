@@ -23,4 +23,4 @@ restart<br/>
 
 ------------
 <p>example:</p>
-<p><a target="_blank" href="https://raw.github.com/redVi/dwm/master/dwm.png"><img src="https://raw.github.com/redVi/dwm/master/dwm.png" alt="DWM screenshot" title="dwm" style="max:width:50%;"></a></p>
+[dwm](http://fc05.deviantart.net/fs70/i/2013/001/d/e/arch_linux__dwm__december_2012_by_redvi9-d5pkhy7.png "dwm")

@@ -32,6 +32,11 @@
   <item label="Xterm">
     <action name="Execute"><command>xterm</command></action>
   </item>
+  <item label="Run command">
+    <action name="Execute">
+      <command>gmrun</command>
+    </action>
+  </item>
 </menu>
 
 <menu id="apps-net-menu" label="Internet">
@@ -44,6 +49,15 @@
       </startupnotify>
     </action>
 </item>
+  <item label="Google Chrome">
+    <action name="Execute">
+      <command>google-chrome-beta</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>google-chrome-beta</wmclass>
+      </startupnotify>
+    </action>
+</item>
   <item label="Transmission">
     <action name="Execute">
       <command>transmission-gtk</command>
@@ -53,16 +67,6 @@
       </startupnotify>
     </action>
   </item>
-  <item label="Skype">
-   <action name="Execute">
-     <command>skype</command>
-     <startupnotify>
-       <enabled>yes</enabled>
-       <wmclass>skype</wmclass>
-     </startupnotify>
-   </action>
-  </item>
- 
   <item label="Pidgin Instant Messenger">
     <action name="Execute">
       <command>pidgin</command>
@@ -83,7 +87,26 @@
       </startupnotify>
     </action>
   </item>
+  <item label="Xfburn">
+    <action name="Execute">
+      <command>xfburn</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>xfburn</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Camera">
+    <action name="Execute">
+      <command>cheese</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>cheese</wmclass>
+      </startupnotify>
+    </action>
+  </item>
 </menu>
+
 
 <menu id="apps-fileman-menu" label="File Managers">
   <item label="Spacefm">
@@ -113,14 +136,6 @@
       </startupnotify>
     </action>
   </item>
-  <item label="Evince">
-    <action name="Execute">
-      <command>evince</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
   <item label="Inkscape">
     <action name="Execute">
       <command>inkscape</command>
@@ -130,16 +145,37 @@
     </action>
   </item>
 </menu>
-<menu id="system-menu" label="System">
-  <item label="Openbox Configuration Manager">
+
+<menu id="apps-office-menu" label="Office">
+  <item label="Abiword">
     <action name="Execute">
-      <command>obconf</command>
+      <command>abiword</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>abiword</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Zathura">
+    <action name="Execute">
+      <command>zathura</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="system-menu" label="System">
+  <item label="GParted">
+    <action name="Execute">
+      <command>gparted</command>
       <startupnotify><enabled>yes</enabled></startupnotify>
     </action>
   </item>
-  <item label="Xfce Settings">
+  <item label="Openbox Configuration Manager">
     <action name="Execute">
-      <command>xfce-setting-show</command>
+      <command>obconf</command>
       <startupnotify><enabled>yes</enabled></startupnotify>
     </action>
   </item>
@@ -166,6 +202,7 @@
   <menu id="apps-multimedia-menu"/>
   <menu id="apps-term-menu"/>
   <menu id="apps-fileman-menu"/>
+  <menu id="apps-office-menu" />
   <separator label="System" />
   <menu id="system-menu"/>
   <separator />

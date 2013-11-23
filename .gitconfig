@@ -8,6 +8,8 @@
 [core]
 	editor = subl
 	autocrlf = input
+  quotepath = false
+  whitespace = cr-at-eol,indent-with-non-tab,blank-at-eol,space-before-tab
 [color]
 	ui = true
 [alias]
@@ -20,6 +22,3 @@
   als = config --global --get-regexp alias
 [merge]
 	tool = diffuse
-[core]
-  quotepath = false
-	whitespace = cr-at-eol,indent-with-non-tab,blank-at-eol,space-before-tab

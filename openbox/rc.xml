@@ -19,15 +19,15 @@
     <primaryMonitor>1</primaryMonitor>
   </placement>
   <theme>
-    <name>Zukitwo</name>
+    <name>Greenieopenbox</name>
     <titleLayout>NLIMC</titleLayout>
     <keepBorder>no</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>Sans</name>
+      <name>Impact Condensed</name>
       <size>9</size>
       <!-- font size in points -->
-      <weight>Bold</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
@@ -302,7 +302,7 @@
           <enabled>true</enabled>
           <name>Sakura</name>
         </startupnotify>
-        <command>sakura</command>
+        <command>sakura --geometry=600x400</command>
       </action>
     </keybind>
     <keybind key="W-B">
@@ -341,6 +341,15 @@
         <command>subl</command>
       </action>
     </keybind>
+    <keybind key="W-E">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Emacs</name>
+        </startupnotify>
+        <command>emacs</command>
+      </action>
+    </keybind>
     <keybind key="W-H">
       <action name="Execute">
         <startupnotify>
@@ -350,7 +359,7 @@
         <command>spacefm</command>
       </action>
     </keybind>
-    <keybind key="W-Print">
+    <keybind key="W-S">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -360,13 +369,8 @@
       </action>
     </keybind>
     <keybind key="W-R">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>transmission-gtk</name>
-        </startupnotify>>
-        <command>transmission-gtk</command>
-      </action>
+      <action name="Execute"><startupnotify><enabled>true</enabled><name>transmission-gtk</name></startupnotify>&gt;
+        <command>transmission-gtk</command></action>
     </keybind>
     <keybind key="W-I">
       <action name="Execute">
@@ -738,10 +742,16 @@
       </position>
     </application>
     <application name="subl">
-        <desktop>3</desktop>
+      <desktop>3</desktop>
+    </application>
+    <application name="emacs">
+      <desktop>3</desktop>
+    </application>
+    <application name="firefox-bin">
+      <desktop>2</desktop>
     </application>
     <application name="spacefm">
-      <desktop>3</desktop>
+      <desktop>4</desktop>
       <position force="yes">
         <x>center</x>
         <y>50</y>

@@ -1,9 +1,9 @@
-#alignment top_right
-alignment bottom_left
+alignment top_left
+# alignment bottom_left
 use_xft yes
 xftfont 123:size=8
 xftalpha 0.1
-update_interval 3
+update_interval 5
 total_run_times 0
 own_window_argb_visual no
 own_window_argb_value 110
@@ -15,15 +15,15 @@ own_window yes
 double_buffer yes
 minimum_size 250 5
 maximum_width 750
-draw_shades no 
+draw_shades no
 draw_outline no
 draw_borders no
 draw_graph_borders no
 default_color white
 default_shade_color black
 default_outline_color black
-gap_x 15
-gap_y 30 
+gap_x 400
+gap_y 20
 no_buffers yes
 uppercase no
 cpu_avg_samples 2

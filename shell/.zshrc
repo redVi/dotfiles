@@ -92,6 +92,8 @@ bindkey ';5C' forward-word #ctrl+right
 export EDITOR="/usr/bin/vim"
 export TERM=xterm-256color
 export PATH="$PATH:/home/$USER/bin"
+export PYTHONSTARTUP=~/.pythonrc
+export RUBYOPT=rubygems
 #
 # Aliases
 alias ls='ls --color=auto'

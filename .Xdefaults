@@ -1,2 +1,2 @@
-Emacs.font: Consolas:size=14:antialise:true
+Emacs.font Monaco:size=12:antialise:true
 Emacs.FontBackend: xft

@@ -6,7 +6,7 @@
 [help]
 	autocorrect = 1
 [core]
-	editor = subl
+	editor = emacs
 	autocrlf = input
   quotepath = false
   whitespace = cr-at-eol,indent-with-non-tab,blank-at-eol,space-before-tab
@@ -14,7 +14,6 @@
 	ui = true
 [alias]
   ch = checkout
-  br = branch
   cm = commit -m
   cam = commit -a -m
   st = status

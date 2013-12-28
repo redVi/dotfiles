@@ -1,2 +1,80 @@
-Emacs.font Monaco:size=12:antialise:true
+Emacs.font Lucida Grange:size=12:antialise:true
 Emacs.FontBackend: xft
+Emacs.geometry: 160x43
+
+! --- special colors ---
+! xrdb -merge .Xdefaults
+
+UXTerm*faceName: Lucida Grange
+UXTerm*faceSize: 10
+UXTerm*keepSelection: true
+UXTerm*loginShell: true
+URxvt*.transparent: true
+URxvt*.shading: 110
+UXTerm*saveLines: 1000
+UXTerm*geometry: 95x30
+
+! ------------------------------------------------------------------------------
+! --- http://ciembor.github.com/4bit -------------------------------------------
+! ------------------------------------------------------------------------------
+
+! --- special colors ---
+
+UXTerm*background: #002733
+UXTerm*foreground: #d9e6f2
+
+! --- standard colors ---
+
+! black
+UXTerm*color0: #000000
+
+! bright_black
+UXTerm*color8: #323232
+
+! red
+UXTerm*color1: #b34040
+
+! bright_red
+UXTerm*color9: #e4b4b4
+
+! green
+UXTerm*color2: #40b340
+
+! bright_green
+UXTerm*color10: #b4e4b4
+
+! yellow
+UXTerm*color3: #b3b340
+
+! bright_yellow
+UXTerm*color11: #e4e4b4
+
+! blue
+UXTerm*color4: #4040b3
+
+! bright_blue
+UXTerm*color12: #b4b4e4
+
+! magenta
+UXTerm*color5: #b340b3
+
+! bright_magenta
+UXTerm*color13: #e4b4e4
+
+! cyan
+UXTerm*color6: #40b3b3
+
+! bright_cyan
+UXTerm*color14: #b4e4e4
+
+! white
+UXTerm*color7: #d1d1d1
+
+! bright_white
+UXTerm*color15: #ffffff
+
+
+! ------------------------------------------------------------------------------
+! --- end of terminal colors section -------------------------------------------
+! ------------------------------------------------------------------------------
+

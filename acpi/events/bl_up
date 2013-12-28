@@ -1,0 +1,2 @@
+event=video[ /]brightnessup
+action=/etc/acpi/actions/bl_up.sh

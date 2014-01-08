@@ -2,17 +2,23 @@ Emacs.font Lucida Grange:size=12:antialise:true
 Emacs.FontBackend: xft
 Emacs.geometry: 160x43
 
-! ------------------------------------------------------------------------------
-! --- terminal options ---------------------------------------------------------
+! --- fonts ---
+Xft.autohint: 0
+Xft.hintstyle: hintnone
+Xft.hinting: 1
+Xft.antialias: 1
+
+! --- special colors ---
 ! xrdb -merge .Xdefaults
-! ------------------------------------------------------------------------------
 
 UXTerm*faceName: Lucida Grange
 UXTerm*faceSize: 10
 UXTerm*keepSelection: true
 UXTerm*loginShell: true
+UXTerm*.transparent: true
+UXTerm*.shading: 110
 UXTerm*saveLines: 1000
-UXTerm*geometry: 95x30
+!UXTerm*geometry: 95x30
 
 ! ------------------------------------------------------------------------------
 ! --- http://ciembor.github.com/4bit -------------------------------------------

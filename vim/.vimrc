@@ -1,9 +1,9 @@
 "Font
-set guifont=Monospace\ 8
+set guifont=Monospace\ 10
 "Включаем распознавание типов файлов и типо-специфичные плагины:
 filetype on
 filetype plugin on
-"Настройки табов для Python, согласно рекоммендациям
+"Настройки табов для Python, согласно рекомендациям
 set tabstop=4 
 set shiftwidth=4
 set smarttab
@@ -28,8 +28,10 @@ imap [ []<LEFT>
 imap ( ()<LEFT>
 imap { {}<LEFT>
 "imap < <><LEFT>
-"Тёмный background терминала
+"Тёмный background терминала (solarized-dark)
 "set background=dark
+"Светлый background (solarized0light)
+set background=light
 "Отображать символы табуляции
 set list lcs=tab:>-,nbsp:-
 "fdm, foldopen
@@ -62,7 +64,7 @@ set fileencodings=utf8,cp1251 " Возможные кодировки файло
 " то будет использоваться cp1251
 set title " показывать имя буфера в заголовке терминала
 " Цветовая схема из ~/.vim/colors/
-:colorscheme darkdevil
+:colorscheme solarized
 "Плагины
 "Компиляция скрипто питона с плагином http://www.vim.org/scripts/script.php?script_id=1439
 "Для запуска положить в ~/.vim/compiler и запустить :make

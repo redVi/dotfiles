@@ -58,3 +58,8 @@ project-settings	project.txt	/*project-settings*
 project-syntax	project.txt	/*project-syntax*
 project-tips	project.txt	/*project-tips*
 project.txt	project.txt	/*project.txt*
+xml-plugin-callbacks	xml-plugin.txt	/*xml-plugin-callbacks*
+xml-plugin-html	xml-plugin.txt	/*xml-plugin-html*
+xml-plugin-mappings	xml-plugin.txt	/*xml-plugin-mappings*
+xml-plugin-settings	xml-plugin.txt	/*xml-plugin-settings*
+xml-plugin.txt	xml-plugin.txt	/*xml-plugin.txt*

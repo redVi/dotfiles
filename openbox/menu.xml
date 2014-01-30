@@ -21,6 +21,15 @@
       </startupnotify>
     </action>
   </item>
+  <item label="Gummi">
+    <action name="Execute">
+      <command>gummi</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>Gummi</wmclass>
+      </startupnotify>
+    </action>
+  </item>
 </menu>
 
 <menu id="apps-term-menu" label="Terminals">

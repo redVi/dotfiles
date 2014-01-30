@@ -1,0 +1,46 @@
+alignment top_left
+# alignment bottom_left
+use_xft yes
+xftfont 123:size=8
+xftalpha 0.1
+update_interval 60
+total_run_times 0
+own_window_argb_visual no
+own_window_argb_value 110
+own_window_class Conky
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_transparent yes
+own_window_type desktop
+own_window yes
+double_buffer yes
+minimum_size 250 5
+maximum_width 400
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color white
+default_shade_color black
+default_outline_color black
+gap_x 40
+gap_y 20
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 1
+override_utf8_locale yes
+use_spacer yes
+
+
+TEXT
+${voffset 10}${color EAEAEA}${font Sportrop:pixelsize=140}${time %H:%M}
+${voffset -380}${offset 10}${color EAEAEA} ${font Sportrop:pixelsize=42}${time %Y}
+${font}${voffset -100}${offset -5}${color d88c00}${font Sportrop:pixelsize=42}${time %d}
+${font}${voffset 80}${offset 0}${font Caviar Dreams:pixelsize=14}${color d88c00}Bat: ${color EAEAEA}${battery_percent BAT0}% ${voffset 1}${font Caviar Dreams:pixelsize=14}${offset 5}${color d88c00}Mail: ${color EAEAEA}${execpi 300 bash  ~/.scripts/gmail.sh} ${offset 1}${color d88c00}Vol ${color d88c00}${offset 5}${color}${mixer Vol}% ${font Caviar Dreams:pixelsize=14}${color d88c00}Kernel: ${offset 5}$color${kernel}
+
+
+
+
+
+
+

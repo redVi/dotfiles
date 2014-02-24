@@ -14,7 +14,7 @@ own_window_type desktop
 own_window yes
 double_buffer yes
 minimum_size 250 5
-maximum_width 400
+maximum_width 450
 draw_shades no
 draw_outline no
 draw_borders no

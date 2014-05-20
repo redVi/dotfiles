@@ -6,14 +6,14 @@
 [help]
 	autocorrect = 1
 [core]
-	editor = emacs
+	editor = nano
 	autocrlf = input
   quotepath = false
   whitespace = cr-at-eol,indent-with-non-tab,blank-at-eol,space-before-tab
 [color]
 	ui = true
 [alias]
-  ch = checkout
+  cb = checkout -b
   cm = commit -m
   cam = commit -a -m
   st = status

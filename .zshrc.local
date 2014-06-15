@@ -15,6 +15,7 @@ export RUBYOPT=rubygems
 
 # Aliases
 alias grep='grep --colour=auto'
+alias gentoo='python3 ~/.scripts/gentoo.py'
 alias net='sudo /etc/init.d/net.eth0'
 alias mgrep='mplayer -vo null -ao null -frames 0 -v'
 alias -s {avi,mkv,mpeg,mpg,mov,m2v,mp4,wmv}=mplayer

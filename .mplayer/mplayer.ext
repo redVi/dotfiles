@@ -1,0 +1,485 @@
+#!/bin/bash
+#***************************************************************************
+#*   Copyright (C) 2008, Konishchev Dmitry                                 *
+#*   http://konishchevdmitry.blogspot.com/                                 *
+#*                                                                         *
+#*   Project homepage:                                                     *
+#*   http://sourceforge.net/projects/mplayerext/                           *
+#*                                                                         *
+#*   This program is free software; you can redistribute it and/or modify  *
+#*   it under the terms of the GNU General Public License as published by  *
+#*   the Free Software Foundation; either version 3 of the License, or     *
+#*   (at your option) any later version.                                   *
+#*                                                                         *
+#*   This program is distributed in the hope that it will be useful,       *
+#*   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+#*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+#*   GNU General Public License for more details.                          *
+#**************************************************************************/
+
+
+# NOTICE:
+# My native language is Russian. I can read English, but not write. I
+# translate my comments in this script from Russian to English as I can.
+# Therefore please sorry for bad translation. If you want to help me to
+# translate this comments more professionally please contact me - I will be
+# very glad this.
+
+
+# mplayer.ext - wrapper script for MPlayer.
+#
+# It saves the playback position of your audio and video files after you
+# quit and resumes when you play the file again.
+#
+# Usage:
+# If you want to use resuming features of this script, you need always,
+# when you want to play the audio/video file call this script instead of
+# MPlayer.
+#
+# How script works:
+# If you closing MPlayer while movie is playing, in the file, the path to
+# which stored in $resume_info_file variable writing information about the
+# time at which viewing interrupt. Time is associated with the file name
+# (the name, not the path!), so if the file will be moved to another
+# directory, the script is still recognize it. At the next time when you
+# start playing of this film, script find time information stored in
+# $resume_info_file and playback of the film will continue from the point
+# at which viewing interrupt last time. 
+# 
+# The maximum number of files, information of which can be stored in
+# $resume_info_file defined by the $max_resume_info_length.
+# 
+# Script limitations:
+# * Script does not work with DVD files with name like VTS_*_*.VOB, because
+#   MPlayer not allows to start playback of such files from an arbitrary
+#   position.
+# * Because MPlayer allows to start playback of the film only from key
+#   frame, if the playback of the film at last time aborts not on the key
+#   frame, when we try to resume playback, MPlayer skip all frames from this
+#   position to next key frame, ie will remain not viewed part of the film.
+#   In this regard, script produces unwinding at $keyint seconds ago (by
+#   default - 10), because during encoding most of MPEG-4 files this value is
+#   used as the maximum distance between key frames. If your video files has
+#   bigger key frame interval, then change the value of $keyint. 
+
+
+# mplayer.ext - скрипт-оболочка для MPlayer.
+# 
+# Предназначен для продолжения прослушивания/просмотра аудио и видео
+# файлов с той позиции, на которой просмотр/прослушивание завершился в
+# прошлый раз при закрытии MPlayer'a.
+# 
+# Использование:
+# Если вы хотите пользоваться возможностями скрипта, вам необходимо
+# всегда, когда вы хотите проиграть аудио/видео файл, вызывать этот скрипт
+# вместо MPlayer'a.
+# 
+# Как работает скрипт:
+# Если завершение работы MPlayer'a происходит во время просмотра фильма,
+# то в файл, путь к которому задан переменной $resume_info_file, заносится
+# информация о времени, на котором произошло прерывание просмотра. Время
+# привязывается к имени файла (имени, а не пути!), таким образом, если файл
+# будет перемещен в другую директорию, то скрипт все равно его "узнает".
+# В следующий раз, когда пользователь запросит проигрывание этого фильма,
+# скрипт просмотрит файл, заданный переменной $resume_info_file и
+# продолжит воспроизведение фильма с того момента, на котором завершилось
+# воспроизведение в прошлый раз.
+# 
+# Максимальное количество файлов, информация о которых может храниться в
+# $resume_info_file задается переменной $max_resume_info_length.
+# 
+# Ограничения скрипта:
+# * Скрипт не обрабатывает файлы DVD вида VTS_*_*.VOB, т. к. MPlayer не
+#   позволяет начинать воспроизведение таких файлов с произвольного места.
+# * Т. к. MPlayer позволяет начинать воспроизведение фильма только с
+#   ключевого кадра, то, если воспроизведение фильма в прошлый раз
+#   прервалось не на ключевом кадре, при попытке воспроизвести фильм с
+#   того же места произойдет перемотка вперед до следующего ключевого
+#   кадра, т. е. часть фильма останется непросмотренной. В связи с этим
+#   скрипт производит "отматывание" на $keyint секунд назад (по умолчанию
+#   - 10), т. к., при кодировании большинства MPEG-4 файлов данная
+#   величина используется в качестве максимального расстояния между
+#   ключевыми кадрами. Если в ваших видеофайлах интервал между ключевыми
+#   кадрами больше этого значения, то измените значение переменной $keyint.
+
+
+# Settings
+# Настройки -->
+	# Maximum keyframe interval
+	# Максимальный интервал между ключевыми кадрами
+	keyint=10
+
+	# File which will be stored time information
+	# Файл, в котором будет храниться информация о недосмотренных файлах
+	resume_info_file=~/.mplayer/resume_info
+
+	# Maximum number of files which will be stored in $resume_info_file
+	# Максимальное количество файлов, информация о которых будет храниться в $resume_info_file
+	max_resume_info_length=100
+# Settings
+# Настройки <--
+
+
+mplayer_ext_echo()
+{
+	echo "mplayer.ext: $@"
+}
+
+
+mplayer_ext_warning()
+{
+	mplayer_ext_echo "$@" >&2
+}
+
+
+cleanup()
+{
+	rm -f $tmp_file
+}
+
+
+die()
+{
+	mplayer_ext_warning "$@"
+	cleanup
+	exit 1
+}
+
+
+# Returns video identifier by file name
+# Возвращает идентификатор видео по имени файла
+get_video_name_by_file_name()
+{
+	local video_name=$(basename "$1")
+
+	if [[ "$video_name" == "" ]]
+	then
+		return 1
+	fi
+
+	# Do not treat DVD files because it is impossible to start playback of
+	# such files from an arbitrary position
+	# Не обрабатываем файлы DVD, т. к. в них невозможно осуществлять воспроизведение
+	# с произвольного места
+	if echo -n "$video_name" | egrep -i '^vts_[[:digit:]]+_[[:digit:]]+.vob$' > /dev/null
+	then
+		return 1
+	fi
+
+	echo -n "$video_name"
+}
+
+
+# If $2 == 0, the file will marked as viewed
+# Если $2 == 0, то файл помечается как просмотренный
+set_resume_pos()
+{
+	declare -a resume_info_array
+	local resume_info resume_info_time resume_info_time i
+
+	# Setting up words separator to \n
+	# Устанавливаем разделитель слов равным \n
+	local IFS=$'\n'
+
+	i=0
+	for resume_info in `cat "$resume_info_file" | tail --lines $((max_resume_info_length - 1))`
+	do
+		resume_info_time=`echo -n "$resume_info" | egrep '^.+:[[:digit:]]+$' | sed -r 's/^.+://' | egrep '^[[:digit:]]+$'`
+		resume_info_name=`echo -n "$resume_info" | sed "s/:${resume_info_time}\$//"`
+
+		# Skiping bad records
+		# Пропускаем неверно сформированные записи
+		if [[ "$resume_info_time" == "" || "$resume_info_name" == "" ]]
+		then
+			mplayer_ext_warning "Bad resume info string: '$resume_info'."
+			continue
+		fi
+		
+		# If this is the file, that we are looking for
+		# Если это тот файл, который мы ищем
+		if [[ "$resume_info_name" == "$1" ]]
+		then
+			# Skiping old record
+			# Пропускаем старую запись
+			continue
+		# Leaving other files unchanged
+		# Остальные файлы - оставляем без изменений
+		else
+			resume_info_array[$((i++))]="$resume_info"
+		fi
+	done
+
+	# If video was interrupted
+	# Если видео не досмотрели до конца
+	if [[ "$2" != "0" ]]
+	then
+		mplayer_ext_echo "Writing resume time information: '$1': $2."
+		resume_info_array[$i]="$1:$2"
+	else
+		mplayer_ext_echo "Writing resume time information: '$1': viewed."
+	fi
+
+	# Saving changes to file
+	# Заносим изменения в файл
+	echo "${resume_info_array[*]}" > "$resume_info_file" || die
+}
+
+
+# Gets time line, on which video was interrupted.
+# Convert lines like:
+# A: 308.4 V: 308.4 A-V:  -0.006 ct:  -0.041 7395/7395  4%  0%  5.5% 0 0
+# A: 308.4 V: 308.4 A-V:  0.006 ct:  0.041 7395/7395  4%  0%  5.5% 0 0
+# A:   2.0 V:   2.0 A-V: -0.006 ct:  0.007  50/ 50  6%  3%  3.9% 0
+# A:  87.6 (01:27.5) of 228.0 (03:48.0)  4.4%
+# V:   1.8  45/ 45 15%  3%  0.0% 0 0
+# to the string like:
+# [AV]: 308
+# depending of the availability of audio/video tracks
+
+# Получает строку времени, на котором было приостановлено воспроизведение файла.
+# Преобразует строки вида:
+# A: 308.4 V: 308.4 A-V:  -0.006 ct:  -0.041 7395/7395  4%  0%  5.5% 0 0
+# A: 308.4 V: 308.4 A-V:  0.006 ct:  0.041 7395/7395  4%  0%  5.5% 0 0
+# A:   2.0 V:   2.0 A-V: -0.006 ct:  0.007  50/ 50  6%  3%  3.9% 0
+# A:  87.6 (01:27.5) of 228.0 (03:48.0)  4.4%
+# V:   1.8  45/ 45 15%  3%  0.0% 0 0
+# в строку вида:
+# [AV]:308
+# в зависимости от наличия в файле аудио/видео дорожек
+get_cur_pos_info()
+{
+	local pos_info=`cat $tmp_file | head --lines $end_line | tail --lines $((end_line - start_line + 1)) | tr '\33\15' '\n' \
+		| egrep '^[AV]:[[:space:]]*[[:digit:]]+\.[[:digit:]]+[[:space:]]+' \
+			| tail --lines 1 \
+				| sed -r 's/:\s+/:/g' | sed -r 's/\s+/ /g'`
+
+	if [[ $pos_info == "" ]]
+	then
+		return 1
+	fi
+
+	# Video with audio
+	# Видео со звуком
+	if echo "$pos_info" | egrep -o '^A:[[:digit:]]+\.[[:digit:]]+ V:[[:digit:]]+\.[[:digit:]]' > /dev/null
+	then
+		pos_info=`echo -n "$pos_info" | awk '{ print $2 }' | awk -F '.' '{ print $1 }'`
+	# Video without audio
+	# Видео без звука
+	elif echo "$pos_info" | egrep -o '^V:[[:digit:]]+\.[[:digit:]]' > /dev/null
+	then
+		pos_info=`echo -n "$pos_info" | awk -F '.' '{ print $1 }'`
+	# Audio without video
+	# Аудио без видео
+	elif echo "$pos_info" | egrep -o '^A:[[:digit:]]+\.[[:digit:]]' > /dev/null
+	then
+		pos_info=`echo -n "$pos_info" | awk -F '.' '{ print $1 }'`
+	# Logical error
+	# Логическая ошибка
+	else
+		die "Logical error! :)"
+	fi
+
+	if [[ $pos_info == "" ]]
+	then
+		die "Logical error! :)"
+	fi
+
+	echo -n "$pos_info"
+}
+
+
+get_resume_pos()
+{
+	local resume_info resume_info_time resume_info_time
+
+	# Setting up words separator to \n
+	# Устанавливаем разделитель слов равным \n
+	local IFS=$'\n'
+
+	for resume_info in $(< "$resume_info_file")
+	do
+		resume_info_time=`echo "$resume_info" | egrep '^.+:[[:digit:]]+$' | sed -r 's/^.+://' | egrep '^[[:digit:]]+$'`
+		resume_info_name=`echo "$resume_info" | sed "s/:${resume_info_time}\$//"`
+
+		# Skiping bad records
+		# Пропускаем неверно сформированные записи
+		if [[ "$resume_info_time" == "" || "$resume_info_name" == "" ]]
+		then
+			# Do not show warning, because it will be showed on writing to file
+			# Предупреждение не выводим, т. к. оно будет выведено при записи в файл.
+			continue
+		fi
+		
+		# If this is the file that we are looking for
+		# Если это тот файл, который мы ищем
+		if [[ "$resume_info_name" == "$1" ]]
+		then
+			echo $resume_info_time
+			return 0
+		fi
+	done
+
+	return 1
+}
+
+
+if ! tmp_file=`mktemp`
+then
+	die "Can't create temp file."
+fi
+
+if ! which mplayer > /dev/null
+then
+	die "Error! Mplayer not installed."
+fi
+
+if [[ ! -e "$resume_info_file" ]]
+then
+	touch "$resume_info_file" || die
+fi
+
+# Changing MPlayer arguments so that the selected video files will be
+# played starting from that point where they were interrupted at last time.
+# Изменяем аргрументы, переданные MPlayer'у так, чтобы выбранные видеофайлы
+# воспроизводились с того момента, где в прошлый раз было прервано
+# воспроизведение.
+i=0
+for option
+do
+	options[$((i++))]="$option"
+
+	if [[ ${option:0:1} != '-' ]]
+	then
+		# If the value of the parameter is similar to the file name, then
+		# consider that we need to play it. If this ordinary option, script
+		# still works fine, except that will be added extra -ss option in
+		# the case when the value of the parameter will be similar to the
+		# name of a file in the system.
+		# Если значение параметра похоже на имя файла, то считаем, что
+		# требуется проиграть этот файл.  Если это просто значение опции, то
+		# скрипт все равно сработает нормально, разве что добавится лишний
+		# ключ -ss в случае когда значение параметра будет совпадать с
+		# именем какого-либо файла в системе.
+		if [[ -e "$option" ]]
+		then
+			if video_name=`get_video_name_by_file_name "$option"`
+			then
+				# If playing of this file was interrupted at last time
+				# Если воспроизведение этого видео файла было прервано ранее
+				if video_resume_pos=`get_resume_pos "$video_name"`
+				then
+					options[$((i++))]='-ss'
+					options[$((i++))]="$video_resume_pos"
+				fi
+			fi
+		fi
+	fi
+done
+
+# Starting MPlayer with changed command line parameters
+# Запускаем MPlayer с измененными параметрами командной строки
+mplayer_ext_echo "Starting MPlayer: mplayer ${options[@]}"
+mplayer "${options[@]}" | tee "$tmp_file"
+
+# Getting all files, which MPlayer played
+# Получаем все файлы, которые проигрывал MPlayer -->
+	files_in_output="`egrep --line-number 'Playing[[:space:]]+.+\.' $tmp_file`"
+
+	for line in `seq \`echo "$files_in_output" | wc --lines\``
+	do
+		file_in_output=`echo "$files_in_output" | head --lines $line | tail --lines 1`
+		files_lines[$((line-1))]=`echo "$file_in_output" | awk -F ':' '{ print $1 }'`
+		files_paths[$((line-1))]=`echo "$file_in_output" | sed -r 's/^[[:digit:]]+:Playing[[:space:]]+//' | sed 's/\.$//g'`
+	done
+# Getting all files, which MPlayer played
+# Получаем все файлы, которые проигрывал MPlayer <--
+
+# Getting all the necessary information about each played file
+# Получаем всю необходимую информацию о каждом проигранном файле -->
+	for num in `seq 1 ${#files_lines[*]}`
+	do
+		i=$((num-1))
+
+		start_line=${files_lines[$i]}
+
+		# Generating video name by file name
+		# Генерируем имя видео по имени файла
+		if ! video_name=`get_video_name_by_file_name "${files_paths[$i]}"`
+		then
+			mplayer_ext_echo "Skiping file '${files_paths[$i]}'"
+			continue
+		fi
+
+		# This is last file
+		# Если файл последний
+		if [[ $num -eq ${#files_lines[*]} ]]
+		then
+			end_line=$((`cat $tmp_file | wc --lines` + 1))
+
+			# Getting line with time, on which video was interrupted.
+			# Получаем строку со временем, на котором остановилось воспроизведение
+			if ! video_resume_string=`get_cur_pos_info`
+			then
+				# Can't get line with time. It may happen for a variety of
+				# reasons, for example, if unable to open the file. Because
+				# file not playing, do not store it time position.
+				# Получить строку не удалось - это может произойти по разным причинам,
+				# например, если не удалось открыть файл.
+				# Т. к. файл не проигрывался, то не запоминаем его позицию.
+				mplayer_ext_echo "Skiping file '${files_paths[$i]}'"
+				continue
+			fi
+
+			# File was fully played
+			# Файл проигрался до конца
+			if [[ `cat $tmp_file | tail --lines 1` == 'Exiting... (End of file)' ]]
+			then
+				set_resume_pos "$video_name" 0
+			# File playing was interrupted
+			# Проигрывание файла было прервано
+			else
+				video_resume_time=`echo -n "$video_resume_string" | awk -F ':' '{ print $2 }'`
+
+				# Video (audio not need unwind)
+				# Видео (для аудио отматывать не надо)
+				if [[ `echo -n "$video_resume_string" | awk -F ':' '{ print $1 }'` == 'V' ]]
+				then
+					# Unwind video (approximately) to the previous key frame
+					# "Отматываем" видео назад (приблизительно) до предыдущего ключевого кадра
+					if [[ $((video_resume_time - keyint)) -lt 0 ]]
+					then
+						video_resume_time=0
+					else
+						video_resume_time=$((video_resume_time - keyint))
+					fi
+				fi
+
+				set_resume_pos "$video_name" "$video_resume_time"
+			fi
+		# This is not last file
+		# Файл не последний
+		else
+			end_line=${files_lines[$((i+1))]}
+
+			# Getting line with time, on which video was interrupted.
+			# Получаем строку со временем, на котором остановилось воспроизведение
+			if ! video_resume_string=`get_cur_pos_info`
+			then
+				# Can't get line with time. It may happen for a variety of
+				# reasons, for example, if unable to open the file. Because
+				# file not playing, do not store it time position.
+				# Получить строку не удалось - это может произойти по разным причинам,
+				# например, если не удалось открыть файл.
+				# Т. к. файл не проигрывался, то не запоминаем его позицию.
+				mplayer_ext_echo "Skiping file '${files_names[$i]}'"
+				continue
+			fi
+
+			set_resume_pos "$video_name" 0
+		fi
+	done
+# Getting all the necessary information about each played file
+# Получаем всю необходимую информацию о каждом проигранном файле <--
+
+cleanup
+

@@ -1,0 +1,11 @@
+include /usr/share/nano/makefile.nanorc
+include /usr/share/nano/python.nanorc
+include /usr/share/nano/ruby.nanorc
+include /usr/share/nano/xml.nanorc
+include /usr/share/nano/sh.nanorc
+include /usr/share/nano/cmake.nanorc
+include /usr/share/nano/css.nanorc
+include /usr/share/nano/html.nanorc
+include /usr/share/nano/patch.nanorc
+include /usr/share/nano/php.nanorc
+include /usr/share/nano/gentoo.nanorc

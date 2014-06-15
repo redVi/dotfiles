@@ -10,7 +10,7 @@ border_width = 1
 background_color = #ffffff 10
 border_color = #ffffff 60
 
-# ID 2 
+# ID 2
 rounded = 0
 border_width = 0
 background_color = #000000 0
@@ -40,7 +40,7 @@ border_width = 0
 background_color = #ffffff 40
 border_color = #ffffff 0
 
-# Panel 
+# Panel
 panel_monitor = all
 panel_position = bottom center horizontal
 panel_items = TSC
@@ -89,7 +89,7 @@ task_active_icon_asb = 100 0 0
 task_urgent_icon_asb = 100 0 0
 task_iconified_icon_asb = 80 0 0
 
-# Fonts 
+# Fonts
 task_font = CaviarDreams bold 8
 task_font_color = #151515 60
 task_active_font_color = #151515 100

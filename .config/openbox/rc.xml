@@ -300,9 +300,9 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>Terminal</name>
+          <name>Sakura</name>
         </startupnotify>
-        <command>urxvt</command>
+        <command>sakura sakura -c 150 -r 34</command>
       </action>
     </keybind>
     <keybind key="W-B">

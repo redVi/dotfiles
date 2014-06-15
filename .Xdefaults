@@ -1,101 +1,86 @@
+Emacs.font Lucida Grange:size=12:antialise:true
 Emacs.FontBackend: xft
-Emacs.geometry:    133x36
+Emacs.geometry: 160x43
 
-! ### rxvt-unicode ###
-! for this to work you need to install:
-! emerge x11-terms/rxvt-unicode
-! (use-flags: 256-color focused-urgency font-styles mousewheel
-!  perl pixbuf unicode3 vanilla xft)
-! emerge x11-misc/urxvt-perls
-! emerge x11-misc/xclip
-! emerge  x11-misc/xdg-utils
+! --- fonts ---
+Xft.autohint: 0
+Xft.hintstyle: hintnone
+Xft.hinting: 1
+Xft.antialias: 1
 
-urxvt*cursorUnderline:   1
-urxvt*letterspace:       -5
-urxvt*cursorBlink:       true
-urxvt*scrollBar:         false
-urxvt*depth:             32
-urxvt*internalBorder:    5
-urxvt.urgentOnBell:      true
-urxvt.font:              xft:Andale Mono:size=11
-urxvt.geometry:          96x29
+! --- special colors ---
+! xrdb -merge .Xdefaults
 
-Xft.antialias:           1
-Xft.autohint:            0
-Xft.dpi:                 96
-Xft.hinting:             1
-Xft.hintstyle:           hintfull
-Xft.lcdfilter:           lcddefault
-Xft.rgba:                rgb
-!urxvt*.transparent: true
-!urxvt*.shading: 20
-!urxvt*fading: 10
-!urxvt*fadeColor: #000000
+UXTerm*faceName: Lucida Grange
+UXTerm*faceSize: 10
+UXTerm*keepSelection: true
+UXTerm*loginShell: true
+UXTerm*.transparent: true
+UXTerm*.shading: 110
+UXTerm*saveLines: 1000
+!UXTerm*geometry: 95x30
 
-xclock*majorColor:      #9a875f
-xclock*minorColor:      #9a875f
-xclock*minuteColor:     #9a875f
-xclock*hourColor:       #9a875f
-xclock*secondColor:     #9a875f
+! ------------------------------------------------------------------------------
+! --- http://ciembor.github.com/4bit -------------------------------------------
+! ------------------------------------------------------------------------------
 
-!## Extension
-URxvt.perl-ext-common:  default,selection-to-clipboard,matcher,tabbed,font-size
+! --- special colors ---
 
-!## Clickable URLs
-URxvt.url-launcher:    /usr/bin/xdg-open
-URxvt.matcher.button:  1
+UXTerm*background: #002733
+UXTerm*foreground: #d9e6f2
 
-!## Simple tabs
-! tabs use:
+! --- standard colors ---
 
-    ! Shift+ ↓ new tab
-    ! Shift+ ← go to left tab
-    ! Shift+ → go to right tab
-    ! Ctrl+ ← move tab to the left
-    ! Ctrl+ → move tab to the right
-    ! Ctrl+D: close tab
+! black
+UXTerm*color0: #000000
 
-!## Cut and Paste
-!## emerge x11-misc/urxvt-perls
-URxvt.keysym.S-Up:     perl:font-size:increase
-URxvt.keysym.S-Down:   perl:font-size:decrease
+! bright_black
+UXTerm*color8: #323232
 
-!## Colors
-! http://dotshare.it/category/terms/colors/
-urxvt*background:      #181512
-urxvt*foreground:      #bea492
-urxvt*cursorColor:     #93a1a1
+! red
+UXTerm*color1: #b34040
 
-!! black dark/light
-urxvt*color0:          #332d29
-urxvt*color8:          #817267
+! bright_red
+UXTerm*color9: #e4b4b4
 
-!! red dark/light
-urxvt*color1:          #8c644c
-urxvt*color9:          #9f7155
+! green
+UXTerm*color2: #40b340
 
-!! green dark/light
-urxvt*color2:          #c4be90
-urxvt*color10:         #bec17e
+! bright_green
+UXTerm*color10: #b4e4b4
 
-!! yellow dark/light
-urxvt*color3:          #bfba92
-urxvt*color11:         #fafac0
+! yellow
+UXTerm*color3: #b3b340
 
-!! blue dark/light
-! urxvt*color4:        #293033
-! urxvt*color12:       #303b40
-urxvt*color4:          #646a6d
-urxvt*color12:         #626e74
+! bright_yellow
+UXTerm*color11: #e4e4b4
 
-!! magenta dark/light
-urxvt*color5:          #6d6871
-urxvt*color13:         #756f7b
+! blue
+UXTerm*color4: #4040b3
 
-!! cyan dark/light
-urxvt*color6:          #3b484a
-urxvt*color14:         #444d4e
+! bright_blue
+UXTerm*color12: #b4b4e4
 
-!! white dark/light
-urxvt*color7:          #504339
-urxvt*color15:         #9a875f
+! magenta
+UXTerm*color5: #b340b3
+
+! bright_magenta
+UXTerm*color13: #e4b4e4
+
+! cyan
+UXTerm*color6: #40b3b3
+
+! bright_cyan
+UXTerm*color14: #b4e4e4
+
+! white
+UXTerm*color7: #d1d1d1
+
+! bright_white
+UXTerm*color15: #ffffff
+
+
+! ------------------------------------------------------------------------------
+! --- end of terminal colors section -------------------------------------------
+! ------------------------------------------------------------------------------
+

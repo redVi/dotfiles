@@ -3,12 +3,11 @@
 autoload -U compinit promptinit
 compinit
 promptinit
-[[ -a $(whence -p pacman-color) ]] && compdef _pacman pacman-color=pacman
 setopt CORRECT_ALL
 SPROMPT="Очепятались? ввести %r вместо %R? ([Y]es/[N]o/[E]dit/[A]bort) "
 
 # Export
-export EDITOR="/usr/bin/vim"
+export EDITOR="/usr/bin/emacs"
 export PYTHONSTARTUP=~/.pythonrc
 export RUBYOPT=rubygems
 #
@@ -51,3 +50,27 @@ else
     YELLOW=$'%{\e[1;33m%}'
     NO_COLOR=$'%{\e[0m%}'
 fi
+
+# Get the name of the branch (by Ivan Morgun)
+hg_branch() {
+    hg branch 2> /dev/null | awk '{ print "[hg:" $1 }'
+}
+
+hg_dirty() {
+    [ $(hg status 2> /dev/null | wc -l) != 0 ] && echo -e "%F{red}*%F{green}]"
+    [ $(hg status 2>&1 | wc -l) = 0 ] && echo -e "]"
+}
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable svn git
+zstyle ':vcs_info:*' check-for-changes true
+# zstyle ':vcs_info:*' get-revision true
+zstyle ':vcs_info:*' stagedstr "+"
+zstyle ':vcs_info:*' unstagedstr "!"
+zstyle ':vcs_info:*' formats '[%s:%b%F{red}%c%u%F{green}]'
+setopt PROMPT_SUBST
+precmd () {
+    vcs_info
+    HG="$(hg_branch)$(hg_dirty)"
+}
+PROMPT='%{$fg_no_bold[magenta]%}%n %{$fg_no_bold[green]%}%~ %{$fg_no_bold[green]%}${HG}${vcs_info_msg_0_}%{$reset_color%} '

@@ -6,9 +6,7 @@ Emacs.geometry:    133x36
 ! emerge x11-terms/rxvt-unicode
 ! (use-flags: 256-color focused-urgency font-styles mousewheel
 !  perl pixbuf unicode3 vanilla xft)
-! emerge x11-misc/urxvt-perls
-! emerge x11-misc/xclip
-! emerge  x11-misc/xdg-utils
+! emerge x11-misc/urxvt-perls x11-misc/xclip x11-misc/xdg-utils
 
 urxvt*cursorUnderline:   1
 urxvt*letterspace:       -5
@@ -27,9 +25,9 @@ Xft.hinting:             1
 Xft.hintstyle:           hintfull
 Xft.lcdfilter:           lcddefault
 Xft.rgba:                rgb
-!urxvt*.transparent: true
-!urxvt*.shading: 20
-!urxvt*fading: 10
+urxvt*.transparent: true
+urxvt*.shading: 10
+urxvt*fading: 40
 !urxvt*fadeColor: #000000
 
 xclock*majorColor:      #9a875f
@@ -55,10 +53,11 @@ URxvt.matcher.button:  1
     ! Ctrl+ → move tab to the right
     ! Ctrl+D: close tab
 
-!## Cut and Paste
-!## emerge x11-misc/urxvt-perls
-URxvt.keysym.S-Up:     perl:font-size:increase
-URxvt.keysym.S-Down:   perl:font-size:decrease
+! font size on the fly
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
 
 !## Colors
 ! http://dotshare.it/category/terms/colors/

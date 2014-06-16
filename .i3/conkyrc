@@ -1,0 +1,20 @@
+background no
+out_to_console yes
+out_to_x no
+update_interval 10
+total_run_times 0
+short_units yes
+pad_percents 3
+
+override_utf8_locale yes
+
+TEXT
+,[{"full_text": " ❤ $acpitemp°C [$cpu%] ","color": "\#DC322F"},
+  {"full_text": " ≣ $mem/$memmax", "color":"\#268BD2"},
+  ${if_up wlan0}{"full_text": " $upspeed wlan0","color":"\#596300"},
+  $else${if_up eth0}{"full_text": "$upspeed eth0","color":"\#596300"},
+  $else{"full_text": " ≈ no connection ","color":"\#33CC99"},$endif$endif
+  {"full_text": " ☇ $battery_percent% ","color":"\#B58900"},
+  {"full_text": " ♪ $mixer% ", "color":"\#b882ee"},
+  {"full_text": " ${time %a %d %b} ${time %H:%M}", "color": "\#f2f2f2"}
+]

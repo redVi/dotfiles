@@ -2,11 +2,12 @@ Emacs.FontBackend: xft
 Emacs.geometry:    133x36
 
 ! ### rxvt-unicode ###
+! xrdb -all ~/.Xdefaults
 ! for this to work you need to install:
 ! emerge x11-terms/rxvt-unicode
 ! (use-flags: 256-color focused-urgency font-styles mousewheel
 !  perl pixbuf unicode3 vanilla xft)
-! emerge x11-misc/urxvt-perls x11-misc/xclip x11-misc/xdg-utils
+! emerge x11-misc/urxvt-perls x11-misc/xclip x11-misc/xdg-utils x11-misc/urxvt-font-size
 
 urxvt*cursorUnderline:   1
 urxvt*letterspace:       -5
@@ -54,10 +55,11 @@ URxvt.matcher.button:  1
     ! Ctrl+D: close tab
 
 ! font size on the fly
-URxvt.keysym.C-Up:     perl:font-size:increase
-URxvt.keysym.C-Down:   perl:font-size:decrease
-URxvt.keysym.C-S-Up:   perl:font-size:incglobal
-URxvt.keysym.C-S-Down: perl:font-size:decglobal
+URxvt.font-size.step:  4
+URxvt.keysym.C-0:     perl:font-size:increase
+URxvt.keysym.C-9:     perl:font-size:decrease
+URxvt.keysym.C-S-0:   perl:font-size:incglobal
+URxvt.keysym.C-S-9:   perl:font-size:decglobal
 
 !## Colors
 ! http://dotshare.it/category/terms/colors/

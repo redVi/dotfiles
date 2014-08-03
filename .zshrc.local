@@ -10,6 +10,7 @@ SPROMPT="Очепятались? ввести %r вместо %R? ([Y]es/[N]o/[E
 export EDITOR="/usr/bin/emacs"
 export PYTHONSTARTUP=~/.pythonrc
 export RUBYOPT=rubygems
+source ~/.rvm/scripts/rvm
 #
 
 # Aliases
@@ -68,9 +69,21 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "+"
 zstyle ':vcs_info:*' unstagedstr "!"
 zstyle ':vcs_info:*' formats '[%s:%b%F{red}%c%u%F{green}]'
+
+# PROMPT
 setopt PROMPT_SUBST
+# root is red, user is green
+pr='%{$reset_color%}» %{$fg_no_bold[green]%}%~ '
+if [ "$USER" = "root" ]; then
+    pr='%{$reset_color%}» %{$fg_no_bold[red]%}%# '
+fi;
 precmd () {
     vcs_info
-    HG="$(hg_branch)$(hg_dirty)"
+    git_branch="$(hg_branch)$(hg_dirty)"
 }
-PROMPT='%{$fg_no_bold[magenta]%}%n %{$fg_no_bold[green]%}%~ %{$fg_no_bold[green]%}${HG}${vcs_info_msg_0_}%{$reset_color%} '
+
+git='%{$fg_no_bold[cyan]%}${git_branch}${vcs_info_msg_0_}'
+rvm='%{$fg_no_bold[blue]%}::%{$fg_no_bold[yellow]%}$(rvm-prompt)'
+
+PROMPT="${rvm}${git}
+${pr}%{$reset_color%} "

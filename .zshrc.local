@@ -6,32 +6,27 @@ promptinit
 setopt CORRECT_ALL
 SPROMPT="Очепятались? ввести %r вместо %R? ([Y]es/[N]o/[E]dit/[A]bort) "
 
-# Export
-export EDITOR="/usr/bin/emacs"
-export PYTHONSTARTUP=~/.pythonrc
-export RUBYOPT=rubygems
-source ~/.rvm/scripts/rvm
-#
-
 # Aliases
-alias grep='grep --colour=auto'
+
 alias gentoo='python3 ~/.scripts/gentoo.py'
 alias net='sudo /etc/init.d/net.eth0'
 alias mgrep='mplayer -vo null -ao null -frames 0 -v'
 alias -s {avi,mkv,mpeg,mpg,mov,m2v,mp4,wmv}=mplayer
-alias -s {odt,doc,sxw,rtf}=libreoffice.org
+alias -s {odt,doc,sxw,rtf}=abiword
 alias -s {pdf,djvu}=zathura
 alias -s {ogg,mp3,wav,wma}=mocp
 autoload -U pick-web-browser
 alias -s {html,htm}=firefox-bin
 alias man='LC_ALL=ru_RU.UTF-8 man'
+alias runserv='python manage.py runserver --settings=settings.local'
+alias heroku='/usr/local/heroku/bin/heroku'
 
 # Cache enabled
 
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
-# set colors for use in prompts
+# Set colors for use in prompts
 if zrcautoload colors && colors 2>/dev/null ; then
     BLUE="%{${fg[blue]}%}"
     RED="%{${fg_bold[red]}%}"
@@ -52,7 +47,16 @@ else
     NO_COLOR=$'%{\e[0m%}'
 fi
 
-# Get the name of the branch (by Ivan Morgun)
+# Get the name of the GIT branch
+
+#%s   The current version control system, like git or svn.
+#%r    The name of the root directory of the repository
+#%S   The current path relative to the repository root directory
+#%b   Branch information, like master
+#%m   In case of Git, show information about stashes
+#%u   Show unstaged changes in the repository
+#%c   Show staged changes in the repository
+
 hg_branch() {
     hg branch 2> /dev/null | awk '{ print "[hg:" $1 }'
 }
@@ -63,27 +67,30 @@ hg_dirty() {
 }
 
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable svn git
-zstyle ':vcs_info:*' check-for-changes true
-# zstyle ':vcs_info:*' get-revision true
-zstyle ':vcs_info:*' stagedstr "+"
-zstyle ':vcs_info:*' unstagedstr "!"
-zstyle ':vcs_info:*' formats '[%s:%b%F{red}%c%u%F{green}]'
+zstyle ':vcs_info:*'  enable svn git
+zstyle ':vcs_info:*'  check-for-changes true
+zstyle ':vcs_info:*'  stagedstr "+"
+zstyle ':vcs_info:*'  unstagedstr "!"
+zstyle ':vcs_info:*'  formats '%F{white}[%F{cyan}%s%F{magenta}:%b%F{red}%c%u%F{white}]'
+setopt PROMPT_SUBST
+precmd () {
+    vcs_info
+    git_branch="$(hg_branch)$(hg_dirty)"
+}
 
 # PROMPT
 setopt PROMPT_SUBST
 # root is red, user is green
-pr='%{$reset_color%}» %{$fg_no_bold[green]%}%~ '
+pr='» %{$GREEN%}%~ '
 if [ "$USER" = "root" ]; then
-    pr='%{$reset_color%}» %{$fg_no_bold[red]%}%# '
+    pr='» %{$RED%}%# '
 fi;
 precmd () {
     vcs_info
     git_branch="$(hg_branch)$(hg_dirty)"
 }
 
-git='%{$fg_no_bold[cyan]%}${git_branch}${vcs_info_msg_0_}'
-rvm='%{$fg_no_bold[blue]%}::%{$fg_no_bold[yellow]%}$(rvm-prompt)'
+rvm='%{$CYAN%}$(rvm-prompt)%{$NO_COLOR%}'
+HG='%{$MAGENTA%}${git_branch}${vcs_info_msg_0_}'
 
-PROMPT="${rvm}${git}
-${pr}%{$reset_color%} "
+PROMPT="${pr}${HG}%{$NO_COLOR%} "

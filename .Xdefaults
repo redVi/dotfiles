@@ -1,5 +1,6 @@
+#include "/home/redvi/.colors/erosion"
 Emacs.FontBackend: xft
-Emacs.geometry:    133x36
+Emacs.geometry:    133x33
 
 ! ### rxvt-unicode ###
 ! xrdb -all ~/.Xdefaults
@@ -55,46 +56,8 @@ URxvt.matcher.button:  1
     ! Ctrl+D: close tab
 
 ! font size on the fly
-URxvt.font-size.step:  4
+URxvt.font-size.step: 4
 URxvt.keysym.C-0:     perl:font-size:increase
 URxvt.keysym.C-9:     perl:font-size:decrease
 URxvt.keysym.C-S-0:   perl:font-size:incglobal
 URxvt.keysym.C-S-9:   perl:font-size:decglobal
-
-!/* Simplicity colors */
-
-*background: #1F1F22
-*foreground: #F3F3F3
-*cursorColor: #F3F3F3
-
-!black
-*color0:  #333333
-*color8:  #333333
-
-!red
-*color1:  #BF5C56
-*color9:  #BF5C56
-
-!green
-*color2:  #97B19C
-*color10: #97B19C
-
-!yellow
-*color3:  #D7BD8A
-*color11: #D7BD8A
-
-!blue
-*color4:  #545F72
-*color12: #545f72
-
-!magenta
-*color5:  #DD949A
-*color13: #DD949A
-
-!cyan
-*color6:  #BE926B
-*color14: #BE926B
-
-!white
-*color7:  #F4F4F2
-*color15: #F4F4F2

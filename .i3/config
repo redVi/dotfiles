@@ -145,7 +145,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+p exec gmrun
 bindsym $mod+b exec firefox-bin
 bindsym $mod+e exec emacs
-bindsym $mod+h exec urxvt -e ranger
+bindsym $mod+h exec urxvt -e spacefm
 bindsym $mod+i exec mirage
 bindsym $mod+m exec urxvt -e mocp
 bindsym $mod+t exec transmission-gtk

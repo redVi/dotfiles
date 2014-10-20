@@ -19,7 +19,7 @@
     <primaryMonitor>1</primaryMonitor>
   </placement>
   <theme>
-    <name>Zukitwo</name>
+    <name>OWL Dark</name>
     <titleLayout>NLIMC</titleLayout>
     <keepBorder>no</keepBorder>
     <animateIconify>yes</animateIconify>
@@ -381,6 +381,49 @@
         <command>mirage</command>
       </action>
     </keybind>
+    <!-- float vertical left-->
+    <keybind key="A-Left">
+      <action name="MoveResizeTo">
+        <width client="yes">1/2</width>
+        <height>100%</height>
+        <x>0</x>
+        <y>0</y>
+      </action>
+    </keybind>
+    <!-- float vertical right-->
+    <keybind key="A-Right">
+      <action name="MoveResizeTo">
+        <width client="yes">1/2</width>
+        <height>100%</height>
+        <x>-0</x>
+        <y>0</y>
+      </action>
+    </keybind>
+    <!-- float top-->
+    <keybind key="A-Up">
+      <action name="MoveResizeTo">
+        <width client="yes">100%</width>
+        <height>1/2</height>
+        <y>0</y>
+      </action>
+    </keybind>
+    <!-- float bottom-->
+    <keybind key="A-Down">
+      <action name="MoveResizeTo">
+        <width client="yes">100%</width>
+        <height>1/2</height>
+        <y>-0</y>
+      </action>
+    </keybind>
+    <!-- centering window-->
+    <keybind key="A-space">
+      <action name="MoveResizeTo">
+        <width client="yes">100%</width>
+        <height>100%</height>
+        <x>center</x>
+        <y>center</y>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
@@ -614,12 +657,12 @@
       <mousebind button="Left" action="Click">
         <action name="ToggleMaximize"/>
       </mousebind>
-      <mousebind button="Middle" action="Click">
+      <mousebind button="A-space" action="Click">
         <action name="ToggleMaximize">
           <direction>vertical</direction>
         </action>
       </mousebind>
-      <mousebind button="Right" action="Click">
+      <mousebind button="A-Right" action="Click">
         <action name="ToggleMaximize">
           <direction>horizontal</direction>
         </action>
@@ -735,7 +778,7 @@
     <application name="pidgin">
       <desktop>5</desktop>
     </application>
-    <application name="sakura">
+    <application name="urxvt">
       <position force="yes">
         <x>center</x>
         <y>200</y>

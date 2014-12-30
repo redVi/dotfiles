@@ -1,6 +1,6 @@
-#include "/home/redvi/.colors/erosion"
+#include "/home/redvi/.colors/smyck"
 Emacs.FontBackend: xft
-Emacs.geometry:    133x33
+Emacs.geometry:    147x36
 
 ! ### rxvt-unicode ###
 ! xrdb -all ~/.Xdefaults
@@ -28,8 +28,8 @@ Xft.hintstyle:           hintfull
 Xft.lcdfilter:           lcddefault
 Xft.rgba:                rgb
 urxvt*.transparent: true
-urxvt*.shading: 10
-urxvt*fading: 40
+urxvt*.shading: 5
+urxvt*fading: 20
 !urxvt*fadeColor: #000000
 
 xclock*majorColor:      #9a875f

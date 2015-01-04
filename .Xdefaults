@@ -1,9 +1,12 @@
-#include "/home/redvi/.colors/smyck"
+#include "/home/redvi/.colors/pretty"
 Emacs.FontBackend: xft
-Emacs.geometry:    147x36
+Emacs.font:        Droid Sans Mono-10
+Emacs.geometry:    133x33
 
 ! ### rxvt-unicode ###
-! xrdb -all ~/.Xdefaults
+! xrdb -all ~/.Xresources
+! xrdb -query | grep dpi
+!
 ! for this to work you need to install:
 ! emerge x11-terms/rxvt-unicode
 ! (use-flags: 256-color focused-urgency font-styles mousewheel
@@ -20,17 +23,19 @@ urxvt.urgentOnBell:      true
 urxvt.font:              xft:Andale Mono:size=11
 urxvt.geometry:          96x29
 
-Xft.antialias:           1
+!--- Xft settings
+!
 Xft.autohint:            0
-Xft.dpi:                 96
-Xft.hinting:             1
-Xft.hintstyle:           hintfull
 Xft.lcdfilter:           lcddefault
+Xft.hintstyle:           hintfull
+Xft.hinting:             1
+Xft.antialias:           1
 Xft.rgba:                rgb
+
 urxvt*.transparent: true
-urxvt*.shading: 5
-urxvt*fading: 20
-!urxvt*fadeColor: #000000
+urxvt*.shading: 10
+urxvt*fading:   30
+urxvt*fadeColor: #000000
 
 xclock*majorColor:      #9a875f
 xclock*minorColor:      #9a875f

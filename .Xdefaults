@@ -1,7 +1,7 @@
 #include "/home/redvi/.colors/pretty"
 Emacs.FontBackend: xft
-Emacs.font:        Droid Sans Mono-10
-Emacs.geometry:    133x33
+Emacs.font:        Andale Mono-12
+Emacs.geometry:    132x39
 
 ! ### rxvt-unicode ###
 ! xrdb -all ~/.Xresources
@@ -33,8 +33,8 @@ Xft.antialias:           1
 Xft.rgba:                rgb
 
 urxvt*.transparent: true
-urxvt*.shading: 10
-urxvt*fading:   30
+urxvt*.shading: 5
+urxvt*fading:   20
 urxvt*fadeColor: #000000
 
 xclock*majorColor:      #9a875f

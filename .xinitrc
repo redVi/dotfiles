@@ -1,14 +1,15 @@
 
 #!/bin/sh
-#xset b off
-(sleep 1; compton -cfC) &
-#xfce4-notifyd &
+xset b off
+xrdb -load ~/.Xdefaults 
+(sleep 1; compton -cCGb -r-0 -r-0 -r9 -o.50) &
+
 DEFAULT_SESSION=openbox-session
 
 case $1 in
-xmonad)
-    exec /usr/bin/xmonad
-    ;;
+bspwm)
+        exec bspwm
+        ;;
 openbox)
 	exec openbox-session
 	;;
@@ -16,4 +17,3 @@ openbox)
 	exec $DEFAULT_SESSION
 	;;
 esac
-

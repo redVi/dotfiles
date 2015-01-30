@@ -1,6 +1,7 @@
 #include "/home/redvi/.colors/earth"
 Emacs.FontBackend: xft
-Emacs.font:        PT Mono-12
+! Emacs.font:      PT Mono-12
+Emacs.font:        Andale Mono-12
 Emacs.geometry:    133x33
 
 ! ### rxvt-unicode ###
@@ -20,17 +21,18 @@ urxvt*scrollBar:         false
 urxvt*depth:             32
 urxvt*internalBorder:    5
 urxvt.urgentOnBell:      true
-urxvt.font:              xft:Andale Mono:size=11
+urxvt.font:              xft:Andale Mono:size=12:antialias=true:hinting=true
 urxvt.geometry:          96x29
 
 !--- Xft settings
 !
-Xft.autohint:            0
-Xft.lcdfilter:           lcddefault
-Xft.hintstyle:           hintfull
-Xft.hinting:             1
-Xft.antialias:           1
-Xft.rgba:                rgb
+Xft.antialias:          1
+Xft.autohint:           0
+Xft.dpi:                96
+Xft.hinting:            1
+Xft.hintstyle:          hintfull
+Xft.lcdfilter:          lcddefault
+Xft.rgba:               rgb
 
 urxvt*.transparent: true
 urxvt*.shading: 5

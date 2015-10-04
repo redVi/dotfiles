@@ -1,4 +1,3 @@
-Images/Galaxy/308301.jpg#
 # These things are run when an Openbox X Session is started.
 # You may place a similar script in $HOME/.config/openbox/autostart
 # to run user-specific things.
@@ -14,8 +13,9 @@ Images/Galaxy/308301.jpg#
 
 # If you want to use XFCE config tools...
 #
-feh --randomize --bg-fill ~/walls/* &
+sh ~/.fehbg &
 tint2 &
 (sleep 1; wbar &)
-(sleep 2;conky) &
-wicd-gtk &
+(sleep 1;conky) &
+xfce4-power-manager &
+#wicd-gtk &

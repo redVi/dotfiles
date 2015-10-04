@@ -1,8 +1,8 @@
-#include "/home/redvi/.colors/earth"
+#include "/home/redvi/.colors/s1"
 Emacs.FontBackend: xft
 ! Emacs.font:      PT Mono-12
-Emacs.font:        Andale Mono-12
-Emacs.geometry:    133x33
+Emacs.font:        Fira Mono-12
+Emacs.geometry:    100x30
 
 ! ### rxvt-unicode ###
 ! xrdb -all ~/.Xresources
@@ -22,7 +22,7 @@ urxvt*depth:             32
 urxvt*internalBorder:    5
 urxvt.urgentOnBell:      true
 urxvt.font:              xft:Andale Mono:size=12:antialias=true:hinting=true
-urxvt.geometry:          96x29
+urxvt.geometry:          86x32
 
 !--- Xft settings
 !
@@ -30,13 +30,13 @@ Xft.antialias:          1
 Xft.autohint:           0
 Xft.dpi:                96
 Xft.hinting:            1
-Xft.hintstyle:          hintfull
+Xft.hintstyle:          hintsfull
 Xft.lcdfilter:          lcddefault
 Xft.rgba:               rgb
 
 urxvt*.transparent: true
-urxvt*.shading: 5
-urxvt*fading:   20
+urxvt*.shading: 6
+urxvt*fading:   10
 urxvt*fadeColor: #000000
 
 xclock*majorColor:      #9a875f

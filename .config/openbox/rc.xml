@@ -19,13 +19,13 @@
     <primaryMonitor>1</primaryMonitor>
   </placement>
   <theme>
-    <name>Just Black 2</name>
+    <name>mookid_Openbox</name>
     <titleLayout>NLIMC</titleLayout>
     <keepBorder>no</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>Impact Condensed</name>
-      <size>9</size>
+      <name>Lucida Grande</name>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -33,17 +33,17 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
-      <name>Sans</name>
-      <size>9</size>
+      <name>Lucida Grande</name>
+      <size>10</size>
       <!-- font size in points -->
-      <weight>Normal</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>Sans</name>
-      <size>9</size>
+      <name>Lucida Grande</name>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -51,8 +51,8 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
-      <name>Sans</name>
-      <size>9</size>
+      <name>Lucida Grande</name>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -60,8 +60,8 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>Sans</name>
-      <size>9</size>
+      <name>Lucida Grande</name>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
@@ -69,8 +69,8 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>Sans</name>
-      <size>9</size>
+      <name>Lucida Grande</name>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -84,9 +84,9 @@
     <names>
       <name>term</name>
       <name>www</name>
+      <name>emacs</name>
+      <name>home</name>
       <name>chat</name>
-      <name>work</name>
-      <name>other</name>
     </names>
     <popupTime>875</popupTime>
   </desktops>
@@ -219,7 +219,7 @@
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
     </keybind>
-    <keybind key="W-space">
+    <keybind key="A-space">
       <action name="ShowMenu">
         <menu>root-menu</menu>
       </action>
@@ -323,22 +323,13 @@
         <command>gmrun</command>
       </action>
     </keybind>
-    <keybind key="W-G">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Pidgin</name>
-        </startupnotify>
-        <command>pidgin</command>
-      </action>
-    </keybind>
     <keybind key="W-W">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
           <name>Sublime</name>
         </startupnotify>
-        <command>subl3</command>
+        <command>urxvt -e subl3</command>
       </action>
     </keybind>
     <keybind key="W-E">
@@ -359,13 +350,13 @@
         <command>spacefm</command>
       </action>
     </keybind>
-    <keybind key="W-S">
+    <keybind key="A-Print">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
           <name>Scrot</name>
         </startupnotify>
-        <command>scrot</command>
+        <command>scrot -d3</command>
       </action>
     </keybind>
     <keybind key="W-R">
@@ -381,12 +372,21 @@
         <command>mirage</command>
       </action>
     </keybind>
+    <keybind key="W-Z">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>zathura</name>
+        </startupnotify>
+        <command>zathura</command>
+      </action>
+    </keybind>
     <!-- float vertical left-->
     <keybind key="A-Left">
       <action name="MoveResizeTo">
         <width client="yes">1/2</width>
         <height>100%</height>
-        <x>0</x>
+        <x>10</x>
         <y>0</y>
       </action>
     </keybind>
@@ -395,7 +395,7 @@
       <action name="MoveResizeTo">
         <width client="yes">1/2</width>
         <height>100%</height>
-        <x>-0</x>
+        <x>-10</x>
         <y>0</y>
       </action>
     </keybind>
@@ -404,7 +404,7 @@
       <action name="MoveResizeTo">
         <width client="yes">100%</width>
         <height>1/2</height>
-        <y>0</y>
+        <y>10</y>
       </action>
     </keybind>
     <!-- float bottom-->
@@ -412,11 +412,11 @@
       <action name="MoveResizeTo">
         <width client="yes">100%</width>
         <height>1/2</height>
-        <y>-0</y>
+        <y>-10</y>
       </action>
     </keybind>
     <!-- centering window-->
-    <keybind key="A-space">
+    <keybind key="A-f">
       <action name="MoveResizeTo">
         <width client="yes">100%</width>
         <height>100%</height>
@@ -425,7 +425,7 @@
       </action>
     </keybind>
     <!-- medium window -->
-    <keybind key="W-space">
+    <keybind key="A-x">
       <action name="MoveResizeTo">
         <width client="yes">80%</width>
         <height>80%</height>
@@ -502,6 +502,9 @@
       </mousebind>
       <mousebind button="Left" action="DoubleClick">
         <action name="ToggleMaximize"/>
+      </mousebind>
+      <mousebind button="A-z" action="Click">
+        <action name="ToggleMaximizeFull"/>
       </mousebind>
       <mousebind button="Up" action="Click">
         <action name="if">
@@ -796,7 +799,7 @@
       <desktop>4</desktop>
       <position force="yes">
         <x>center</x>
-        <y>50</y>
+        <y>5</y>
       </position>
     </application>
   </applications>

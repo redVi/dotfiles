@@ -1,0 +1,44 @@
+# JavaScript
+'.source.js':
+  'fast jquery':
+    'prefix': 'jq'
+    'body': '''
+      (function($1, undefined) {
+        jQuery(document).ready(function () {
+          $2
+        });
+      })(jQuery);'''
+
+    'console log':
+      'prefix': 'log'
+      'body': '
+        console.log(${1:this});'
+
+
+# Styles
+'.source.css, .source.less, .source.styl, .source.scss':
+  'outline':
+    'prefix': 'ot'
+    'body': '
+      outline: 1px solid #e44;'
+
+
+# HTML
+'.text.html':
+  'div comment':
+    'prefix': 'dic'
+    'body': '''
+    <!-- begin $1 -->
+      <div class="$1">
+        $2
+      </div>
+    <!-- end $1 -->'''
+
+  'section comment':
+    'prefix': 'sic'
+    'body': '''
+      <!-- begin $1 -->
+        <section class="$1">
+          $2
+        </section>
+      <!-- end $1 -->'''

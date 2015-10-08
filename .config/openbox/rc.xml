@@ -219,7 +219,7 @@
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
     </keybind>
-    <keybind key="A-space">
+    <keybind key="A-m">
       <action name="ShowMenu">
         <menu>root-menu</menu>
       </action>
@@ -327,9 +327,9 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>Sublime</name>
+          <name>Editor</name>
         </startupnotify>
-        <command>urxvt -e subl3</command>
+        <command>atom</command>
       </action>
     </keybind>
     <keybind key="W-E">
@@ -345,23 +345,23 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>Spacefm</name>
+          <name>Thunar</name>
         </startupnotify>
-        <command>spacefm</command>
+        <command>thunar</command>
       </action>
     </keybind>
     <keybind key="A-Print">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>Scrot</name>
+          <name>Screenshot</name>
         </startupnotify>
         <command>scrot -d3</command>
       </action>
     </keybind>
     <keybind key="W-R">
       <action name="Execute"><startupnotify><enabled>true</enabled><name>transmission-gtk</name></startupnotify>&gt;
-        <command>transmission-gtk</command></action>
+      <command>transmission-gtk</command></action>
     </keybind>
     <keybind key="W-I">
       <action name="Execute">
@@ -382,7 +382,7 @@
       </action>
     </keybind>
     <!-- float vertical left-->
-    <keybind key="A-Left">
+    <keybind key="A-S-Left">
       <action name="MoveResizeTo">
         <width client="yes">1/2</width>
         <height>100%</height>
@@ -391,7 +391,7 @@
       </action>
     </keybind>
     <!-- float vertical right-->
-    <keybind key="A-Right">
+    <keybind key="A-S-Right">
       <action name="MoveResizeTo">
         <width client="yes">1/2</width>
         <height>100%</height>
@@ -399,24 +399,8 @@
         <y>0</y>
       </action>
     </keybind>
-    <!-- float top-->
-    <keybind key="A-Up">
-      <action name="MoveResizeTo">
-        <width client="yes">100%</width>
-        <height>1/2</height>
-        <y>10</y>
-      </action>
-    </keybind>
-    <!-- float bottom-->
-    <keybind key="A-Down">
-      <action name="MoveResizeTo">
-        <width client="yes">100%</width>
-        <height>1/2</height>
-        <y>-10</y>
-      </action>
-    </keybind>
     <!-- centering window-->
-    <keybind key="A-f">
+    <keybind key="A-S-f">
       <action name="MoveResizeTo">
         <width client="yes">100%</width>
         <height>100%</height>
@@ -425,7 +409,7 @@
       </action>
     </keybind>
     <!-- medium window -->
-    <keybind key="A-x">
+    <keybind key="A-S-x">
       <action name="MoveResizeTo">
         <width client="yes">80%</width>
         <height>80%</height>
@@ -756,20 +740,13 @@
       </mousebind>
     </context>
   </mouse>
-  <menu><!-- You can specify more than one menu file in here and they are all loaded,
-       just don't make menu ids clash or, well, it'll be kind of pointless --><!-- default menu file (or custom one in $HOME/.config/openbox/) --><file>menu.xml</file><hideDelay>200</hideDelay><!-- if a press-release lasts longer than this setting (in milliseconds), the
-       menu is hidden again --><middle>no</middle><!-- center submenus vertically about the parent entry --><submenuShowDelay>100</submenuShowDelay><!-- time to delay before showing a submenu after hovering over the parent
-       entry.
-       if this is a negative value, then the delay is infinite and the
-       submenu will not be shown until it is clicked on --><submenuHideDelay>400</submenuHideDelay><!-- time to delay before hiding a submenu when selecting another
-       entry in parent menu -->
-       if this is a negative value, then the delay is infinite and the
-       submenu will not be hidden until a different submenu is opened --&gt;
-  <applicationIcons>yes</applicationIcons>
-  <!-- controls if icons appear in the client-list-(combined-)menu -->
-  <manageDesktops>yes</manageDesktops>
-  <!-- show the manage desktops section in the client-list-(combined-)menu -->
-</menu>
+  <menu>
+    <middle>no</middle>
+    <applicationIcons>yes</applicationIcons>
+    <!-- controls if icons appear in the client-list-(combined-)menu -->
+    <manageDesktops>yes</manageDesktops>
+    <!-- show the manage desktops section in the client-list-(combined-)menu -->
+  </menu>
   <applications>
     <application class="*">
       <decor>no</decor>
@@ -782,11 +759,11 @@
     </application>
     <application name="urxvt">
       <position force="yes">
-        <x>center</x>
-        <y>200</y>
+        <x>20</x>
+        <y>20</y>
       </position>
     </application>
-    <application name="subl3">
+    <application name="atom">
       <desktop>3</desktop>
     </application>
     <application name="emacs">
@@ -795,11 +772,18 @@
     <application name="firefox-bin">
       <desktop>2</desktop>
     </application>
-    <application name="spacefm">
+    <application name="thunar">
       <desktop>4</desktop>
       <position force="yes">
         <x>center</x>
-        <y>5</y>
+        <y>10</y>
+      </position>
+    </application>
+    <application name="gvim">
+      <desktop>3</desktop>
+      <position force="yes">
+        <x>10</x>
+        <y>15</y>
       </position>
     </application>
   </applications>

@@ -1,7 +1,6 @@
-
 #!/bin/sh
 xset b off
-xrdb -load ~/.Xdefaults 
+xrdb -load ~/.Xdefaults
 (sleep 1; compton -cCGb -r-0 -r-0 -r9 -o.50) &
 
 DEFAULT_SESSION=openbox-session

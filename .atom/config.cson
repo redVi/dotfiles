@@ -1,0 +1,103 @@
+"*":
+  "exception-reporting":
+    userId: "b0778980-458c-4ffc-596a-7d8d992fcebc"
+  welcome:
+    showOnStartup: false
+  core:
+    audioBeep: false
+    disabledPackages: [
+      "about"
+      "archive-view"
+      "autosave"
+      "language-c"
+      "language-clojure"
+      "language-csharp"
+      "language-go"
+      "language-java"
+      "language-objective-c"
+      "language-perl"
+      "language-python"
+      "metrics"
+      "welcome"
+      "language-toml"
+      "linter-jshint"
+      "git-control"
+      "linter"
+    ]
+    themes: [
+      "isotope-light-ui"
+      "wombat-light-syntax"
+    ]
+    autoHideMenuBar: true
+  editor:
+    invisibles: {}
+    fontFamily: "Fira Mono"
+    preferredLineLength: 78
+    scrollPastEnd: true
+    lineHeight: 1.3
+    fontSize: 15
+    autoIndentOnPaste: false
+  "one-light-ui": {}
+  "atom-beautify":
+    analytics: false
+  autoprefixer:
+    browsers: [
+      "1%"
+      "last 2 versions"
+      "ie10"
+    ]
+    remove: false
+  "one-dark-ui": {}
+  "one-light-ui-adwaita": {}
+  "merge-conflicts": {}
+  "atom-terminal":
+    app: "/usr/bin/urxvt"
+    surpressDirectoryArgument: false
+  "terminal-status": {}
+  "isotope-light-ui":
+    fontWeight: "Regular"
+    fontFamily: "System Default"
+  minimap: {}
+  "isotope-ui":
+    fontFamily: "System Default"
+    fontWeight: "Regular"
+  linter: {}
+  "markdown-writer": {}
+  "linter-jshint": {}
+  "terminal-plus":
+    core: {}
+    style: {}
+    toggles:
+      cursorBlink: false
+      autoClose: true
+    colors:
+      blue:
+        red: 60
+        green: 60
+        blue: 106
+        alpha: 1
+      green:
+        red: 65
+        green: 123
+        blue: 65
+        alpha: 1
+".basic.html.text":
+  editor:
+    preferredLineLength: 78
+    normalizeIndentOnPaste: "2"
+".js.regexp.source":
+  editor:
+    preferredLineLength: 78
+    normalizeIndentOnPaste: "3"
+".js.source":
+  editor:
+    preferredLineLength: 78
+    normalizeIndentOnPaste: "4"
+".css.source":
+  editor:
+    preferredLineLength: 78
+    normalizeIndentOnPaste: "4"
+".source.stylus":
+  editor:
+    preferredLineLength: 78
+    normalizeIndentOnPaste: "4"

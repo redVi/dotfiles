@@ -6,37 +6,23 @@
   core:
     audioBeep: false
     disabledPackages: [
-      "about"
-      "archive-view"
       "autosave"
-      "language-c"
-      "language-clojure"
-      "language-csharp"
-      "language-go"
-      "language-java"
-      "language-objective-c"
-      "language-perl"
-      "language-python"
       "metrics"
-      "welcome"
-      "language-toml"
-      "linter-jshint"
-      "git-control"
-      "linter"
+      "bookmarks"
     ]
+    autoHideMenuBar: true
     themes: [
       "isotope-light-ui"
       "wombat-light-syntax"
     ]
-    autoHideMenuBar: true
   editor:
     invisibles: {}
-    fontFamily: "Fira Mono"
-    preferredLineLength: 78
+    fontFamily: "Consolas"
     scrollPastEnd: true
     lineHeight: 1.3
+    zoomFontWhenCtrlScrolling: false
+    showIndentGuide: true
     fontSize: 15
-    autoIndentOnPaste: false
   "one-light-ui": {}
   "atom-beautify":
     analytics: false
@@ -49,27 +35,33 @@
     remove: false
   "one-dark-ui": {}
   "one-light-ui-adwaita": {}
-  "merge-conflicts": {}
+  "merge-conflicts":
+    gitPath: "/usr/bin/git"
   "atom-terminal":
-    app: "/usr/bin/urxvt"
-    surpressDirectoryArgument: false
+    app: "urxvt"
+    MacWinRunDirectly: true
   "terminal-status": {}
   "isotope-light-ui":
+    fontFamily: "Fira Sans"
+    customBackgroundColor: "false"
     fontWeight: "Regular"
-    fontFamily: "System Default"
   minimap: {}
   "isotope-ui":
-    fontFamily: "System Default"
     fontWeight: "Regular"
-  linter: {}
+    minimalMode: true
+  linter:
+    statusIconScope: "File"
+    showErrorTabProject: false
   "markdown-writer": {}
-  "linter-jshint": {}
+  "linter-jshint":
+    disableWhenNoJshintrcFileInPath: true
   "terminal-plus":
-    core: {}
+    core:
+      workingDirectory: "Active File"
     style: {}
     toggles:
-      cursorBlink: false
       autoClose: true
+      cursorBlink: false
     colors:
       blue:
         red: 60
@@ -81,23 +73,119 @@
         green: 123
         blue: 65
         alpha: 1
-".basic.html.text":
+  emmet: {}
+  jshint:
+    validateOnlyOnSave: true
+  "git-plus": {}
+  pigments: {}
+  "project-manager":
+    sortBy: "title"
+    closeCurrent: true
+  "atom-ternjs": {}
+  "autocomplete-plus": {}
+  "Remote-FTP":
+    autoUploadOnSave: "only when connected"
+  "unity-ui":
+    colorStatusIndicatorsInTreeView: true
+    showIcons: true
+  "unity-dark-ui":
+    colorStatusIndicatorsInTreeView: true
+    showIcons: true
+  "ult-terminal": {}
+  docblockr: {}
+  "autoclose-html": {}
+  "slim-dark-ui": {}
+  "atom-material-ui":
+    compactTreeView: true
+    panelContrast: true
+    showTabIcons: "Show on active tab"
+".js.rails.source source.jquery.js":
+  editor:
+    normalizeIndentOnPaste: "2"
+    preferredLineLength: 78
+".rails.rjs.ruby.source":
   editor:
     preferredLineLength: 78
-    normalizeIndentOnPaste: "2"
+".js.regexp.replacement.source":
+  editor:
+    normalizeIndentOnPaste: "3"
+    preferredLineLength: 78
+".php.source.wordpress":
+  editor:
+    preferredLineLength: 78
+".ruby.source.sql":
+  editor:
+    preferredLineLength: 78
+".rails.ruby.source":
+  editor:
+    preferredLineLength: 78
+".python.regexp.source":
+  editor:
+    preferredLineLength: 78
+    normalizeIndentOnPaste: "4"
 ".js.regexp.source":
   editor:
     preferredLineLength: 78
     normalizeIndentOnPaste: "3"
-".js.source":
+".console.python.text":
   editor:
     preferredLineLength: 78
-    normalizeIndentOnPaste: "4"
-".css.source":
+".python.text.traceback":
   editor:
     preferredLineLength: 78
-    normalizeIndentOnPaste: "4"
+".erb.html.text":
+  editor:
+    preferredLineLength: 78
+    normalizeIndentOnPaste: "2"
+".html.ruby.text":
+  editor:
+    preferredLineLength: 78
+    normalizeIndentOnPaste: "2"
+".css.less.source":
+  editor:
+    normalizeIndentOnPaste: "2"
+    preferredLineLength: 78
+    tabLength: 4
+".css.scss.source":
+  editor:
+    normalizeIndentOnPaste: "2"
+    preferredLineLength: 78
+".basic.html.text":
+  editor:
+    preferredLineLength: 78
+    normalizeIndentOnPaste: "2"
 ".source.stylus":
   editor:
     preferredLineLength: 78
+    normalizeIndentOnPaste: "2"
+".jade.source":
+  editor:
+    preferredLineLength: 78
+".diff.source":
+  editor:
+    preferredLineLength: 78
+".ruby.source":
+  editor:
+    preferredLineLength: 78
+".css.source":
+  editor:
+    preferredLineLength: 78
+    normalizeIndentOnPaste: "2"
+".python.source":
+  editor:
+    preferredLineLength: 78
+    autoIndentOnPaste: true
     normalizeIndentOnPaste: "4"
+".js.source":
+  editor:
+    preferredLineLength: 78
+    normalizeIndentOnPaste: "2"
+    autoIndentOnPaste: true
+".gfm.source":
+  editor:
+    preferredLineLength: 78
+".sass.source":
+  editor:
+    preferredLineLength: 78
+    autoIndentOnPaste: true
+    normalizeIndentOnPaste: "2"

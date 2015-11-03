@@ -1,7 +1,6 @@
-#include "/home/redvi/.colors/s1"
+#include "/home/redvi/.colors/earth"
 Emacs.FontBackend: xft
-! Emacs.font:      PT Mono-12
-Emacs.font:        Fira Mono-12
+Emacs.font:        Consolas-11
 Emacs.geometry:    100x30
 
 ! ### rxvt-unicode ###
@@ -15,35 +14,30 @@ Emacs.geometry:    100x30
 ! emerge x11-misc/urxvt-perls x11-misc/xclip x11-misc/xdg-utils x11-misc/urxvt-font-size
 
 urxvt*cursorUnderline:   1
-urxvt*letterspace:       -5
+urxvt*letterspace:       -1
 urxvt*cursorBlink:       true
 urxvt*scrollBar:         false
 urxvt*depth:             32
 urxvt*internalBorder:    5
 urxvt.urgentOnBell:      true
-urxvt.font:              xft:Andale Mono:size=12:antialias=true:hinting=true
+urxvt.font:              xft:Consolas:size=11:antialias=true:hinting=true
 urxvt.geometry:          86x32
+urxvt*.transparent:      true
+urxvt*.shading:          6
+urxvt*fading:            10
+urxvt*fadeColor:         #000000
+
 
 !--- Xft settings
 !
 Xft.antialias:          1
 Xft.autohint:           0
 Xft.dpi:                96
-Xft.hinting:            1
-Xft.hintstyle:          hintsfull
+Xft.hinting:            0
+Xft.hintstyle:          hintfull
 Xft.lcdfilter:          lcddefault
-Xft.rgba:               rgb
+Xft.rgba:               none
 
-urxvt*.transparent: true
-urxvt*.shading: 6
-urxvt*fading:   10
-urxvt*fadeColor: #000000
-
-xclock*majorColor:      #9a875f
-xclock*minorColor:      #9a875f
-xclock*minuteColor:     #9a875f
-xclock*hourColor:       #9a875f
-xclock*secondColor:     #9a875f
 
 !## Extension
 URxvt.perl-ext-common:  default,selection-to-clipboard,matcher,tabbed,font-size

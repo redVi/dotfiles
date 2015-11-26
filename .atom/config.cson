@@ -9,6 +9,7 @@
       "autosave"
       "metrics"
       "bookmarks"
+      "minimap"
     ]
     autoHideMenuBar: true
     themes: [
@@ -17,11 +18,12 @@
     ]
   editor:
     invisibles: {}
-    fontFamily: "Consolas"
     scrollPastEnd: true
     lineHeight: 1.3
     zoomFontWhenCtrlScrolling: false
     showIndentGuide: true
+    fontFamily: "Consolas"
+    confirmCheckoutHeadRevision: false
     fontSize: 15
   "one-light-ui": {}
   "atom-beautify":
@@ -76,6 +78,7 @@
   emmet: {}
   jshint:
     validateOnlyOnSave: true
+    onlyConfig: true
   "git-plus": {}
   pigments: {}
   "project-manager":
@@ -99,6 +102,8 @@
     compactTreeView: true
     panelContrast: true
     showTabIcons: "Show on active tab"
+  "tree-view":
+    hideVcsIgnoredFiles: true
 ".js.rails.source source.jquery.js":
   editor:
     normalizeIndentOnPaste: "2"

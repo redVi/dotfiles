@@ -9,10 +9,15 @@
         });
       })(jQuery);'''
 
-    'console log':
-      'prefix': 'log'
-      'body': '
-        console.log(${1:this});'
+  'console log':
+    'prefix': 'log'
+    'body': '
+      console.log(${1:this});'
+
+  'function syntax':
+    'prefix': 'fct'
+    'body': '
+      function ($1) {}'
 
 
 # Styles
@@ -42,3 +47,7 @@
           $2
         </section>
       <!-- end $1 -->'''
+
+  'svg use':
+    'prefix': 'svguse'
+    'body': '<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="${1:path}.svg#${2:id}"></use></svg>'

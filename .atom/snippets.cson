@@ -39,6 +39,7 @@
       </div>
     <!-- end $1 -->'''
 
+
   'section comment':
     'prefix': 'sic'
     'body': '''
@@ -48,6 +49,12 @@
         </section>
       <!-- end $1 -->'''
 
+
   'svg use':
     'prefix': 'svguse'
-    'body': '<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="${1:path}.svg#${2:id}"></use></svg>'
+    'body': '<svg><use xlink:href="${1:path}.svg#${2:id}"></use></svg>'
+
+
+  'rouble':
+    'prefix': 'rub'
+    'body': '&#8381;'

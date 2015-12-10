@@ -9,21 +9,20 @@
       "autosave"
       "metrics"
       "bookmarks"
-      "minimap"
     ]
-    autoHideMenuBar: true
     themes: [
       "isotope-light-ui"
       "wombat-light-syntax"
     ]
+    autoHideMenuBar: true
   editor:
     invisibles: {}
     scrollPastEnd: true
-    lineHeight: 1.3
     zoomFontWhenCtrlScrolling: false
     showIndentGuide: true
     fontFamily: "Consolas"
     confirmCheckoutHeadRevision: false
+    lineHeight: 1.3
     fontSize: 15
   "one-light-ui": {}
   "atom-beautify":
@@ -44,13 +43,13 @@
     MacWinRunDirectly: true
   "terminal-status": {}
   "isotope-light-ui":
-    fontFamily: "Fira Sans"
     customBackgroundColor: "false"
     fontWeight: "Regular"
+    fontFamily: "Fira Sans"
   minimap: {}
   "isotope-ui":
     fontWeight: "Regular"
-    minimalMode: true
+    fontFamily: "Fira Sans"
   linter:
     statusIconScope: "File"
     showErrorTabProject: false
@@ -108,89 +107,89 @@
   editor:
     normalizeIndentOnPaste: "2"
     preferredLineLength: 78
-".rails.rjs.ruby.source":
-  editor:
-    preferredLineLength: 78
 ".js.regexp.replacement.source":
   editor:
     normalizeIndentOnPaste: "3"
     preferredLineLength: 78
-".php.source.wordpress":
+".rails.rjs.ruby.source":
   editor:
-    preferredLineLength: 78
-".ruby.source.sql":
-  editor:
-    preferredLineLength: 78
-".rails.ruby.source":
-  editor:
-    preferredLineLength: 78
-".python.regexp.source":
-  editor:
-    preferredLineLength: 78
-    normalizeIndentOnPaste: "4"
-".js.regexp.source":
-  editor:
-    preferredLineLength: 78
-    normalizeIndentOnPaste: "3"
-".console.python.text":
-  editor:
-    preferredLineLength: 78
-".python.text.traceback":
-  editor:
-    preferredLineLength: 78
-".erb.html.text":
-  editor:
-    preferredLineLength: 78
-    normalizeIndentOnPaste: "2"
-".html.ruby.text":
-  editor:
-    preferredLineLength: 78
-    normalizeIndentOnPaste: "2"
-".css.less.source":
-  editor:
-    normalizeIndentOnPaste: "2"
-    preferredLineLength: 78
-    tabLength: 4
-".css.scss.source":
-  editor:
-    normalizeIndentOnPaste: "2"
     preferredLineLength: 78
 ".basic.html.text":
   editor:
     preferredLineLength: 78
     normalizeIndentOnPaste: "2"
-".source.stylus":
+".css.scss.source":
+  editor:
+    normalizeIndentOnPaste: "2"
+    preferredLineLength: 78
+".css.less.source":
+  editor:
+    normalizeIndentOnPaste: "2"
+    preferredLineLength: 78
+    tabLength: 4
+".html.ruby.text":
   editor:
     preferredLineLength: 78
     normalizeIndentOnPaste: "2"
-".jade.source":
-  editor:
-    preferredLineLength: 78
-".diff.source":
-  editor:
-    preferredLineLength: 78
-".ruby.source":
-  editor:
-    preferredLineLength: 78
-".css.source":
+".erb.html.text":
   editor:
     preferredLineLength: 78
     normalizeIndentOnPaste: "2"
-".python.source":
+".python.text.traceback":
   editor:
     preferredLineLength: 78
-    autoIndentOnPaste: true
+".console.python.text":
+  editor:
+    preferredLineLength: 78
+".js.regexp.source":
+  editor:
+    preferredLineLength: 78
+    normalizeIndentOnPaste: "3"
+".python.regexp.source":
+  editor:
+    preferredLineLength: 78
     normalizeIndentOnPaste: "4"
-".js.source":
+".rails.ruby.source":
   editor:
     preferredLineLength: 78
-    normalizeIndentOnPaste: "2"
-    autoIndentOnPaste: true
-".gfm.source":
+".ruby.source.sql":
+  editor:
+    preferredLineLength: 78
+".php.source.wordpress":
   editor:
     preferredLineLength: 78
 ".sass.source":
   editor:
     preferredLineLength: 78
     autoIndentOnPaste: true
+    normalizeIndentOnPaste: "2"
+".gfm.source":
+  editor:
+    preferredLineLength: 78
+".js.source":
+  editor:
+    preferredLineLength: 78
+    normalizeIndentOnPaste: "2"
+    autoIndentOnPaste: true
+".python.source":
+  editor:
+    preferredLineLength: 78
+    autoIndentOnPaste: true
+    normalizeIndentOnPaste: "4"
+".css.source":
+  editor:
+    preferredLineLength: 78
+    normalizeIndentOnPaste: "2"
+".ruby.source":
+  editor:
+    preferredLineLength: 78
+".diff.source":
+  editor:
+    preferredLineLength: 78
+".jade.source":
+  editor:
+    preferredLineLength: 78
+".source.stylus":
+  editor:
+    preferredLineLength: 78
     normalizeIndentOnPaste: "2"

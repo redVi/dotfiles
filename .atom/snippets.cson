@@ -14,22 +14,32 @@
     'body': '
       console.log(${1:this});'
 
-  'function syntax':
-    'prefix': 'fct'
-    'body': '
-      function ($1) {}'
-
 
 # Styles
 '.source.css, .source.less, .source.styl, .source.scss':
   'outline':
     'prefix': 'ot'
-    'body': '
-      outline: 1px solid #e44;'
+    'body': 'outline: 1px solid #e44;'
+
+
+
+# Styles and Scripts
+'.source.css, .source.less, .source.styl, .source.scss, .source.js':
+  'comment heading 1':
+    'prefix': 'cm1'
+    'body': '/* ==== ${1:COMMENT} ==== */'
+
+  'comment heading 2':
+    'prefix': 'cm2'
+    'body': '/* == ${1:COMMENT} == */'
+
+  'comment heading 3':
+    'prefix': 'cm3'
+    'body': '/* = ${1:comment} = */'
 
 
 # HTML
-'.text.html':
+'.source.html':
   'div comment':
     'prefix': 'dic'
     'body': '''

@@ -14,21 +14,25 @@
     'body': '
       console.log(${1:this});'
 
-  'react class':
-    'prefix': 'rclass'
-    'body': '''
-      class $1 extends React.Component {
-        render() {
-          $2
-        }
-      }'''
-
 
 # Styles
 '.source.css, .source.less, .source.styl, .source.scss':
   'outline':
     'prefix': 'ot'
     'body': 'outline: 1px solid #e44;'
+
+  'tars background images':
+    'prefix': 'tgbi'
+    'body': '''background-image: url("%=static=%img/${1:dir|dir+componentName}/${2:image-name.png}")'''
+
+  'sprite tars svg':
+    'prefix': 'spritesvg'
+    'body': '@include bg-svg(${1:$svg-image-name});'
+
+  'sprite tars png':
+    'prefix': 'spritepng'
+    'body': '@include bg(${1:$png-image-name});'
+
 
 
 
@@ -38,12 +42,25 @@
     'prefix': 'svguse'
     'body': '<svg><use xlink:href="${1:path}.svg#${2:id}"></use></svg>'
 
-
   'rouble':
     'prefix': 'rub'
     'body': '&#8381;'
 
-
   '|jb':
-    'prefix': 'jade+bem'
-    'body': 'bem|jade'
+    'prefix': 'jade'
+    'body': 'jade'
+
+
+'.source.jade, .source.pug':
+  'tars svg jade':
+    'prefix': 'svgtars'
+    'body': '''
+      |%=symbols=%
+      != jadeHelpers.Icon.call(locals, {iconName: '${1:iconName}', className: '${2:customClass}'})
+    '''
+
+  'tars assets img':
+    'prefix': 'timg'
+    'body': '''
+      img(src="%=static=%img/${1:dir|dir+componentName}/${2:image-name.png}" width="" height="" alt="")
+    '''

@@ -1,0 +1,11 @@
+.tern-project
+.DS_Store
+.Thumbs.db
+*.log
+.idea/
+.vscode/
+node_modules/
+.nvmrc
+.naverc
+.ruby-version
+.ruby-gemset

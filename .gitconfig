@@ -1,23 +1,24 @@
-[user]
-	email = liberty195@gmail.com
-	name = redVi
 [push]
-	default = matching
+  default = matching
 [help]
-	autocorrect = 1
+  autocorrect = 1
 [core]
-	editor = nano
-	autocrlf = input
+  editor = code
+  autocrlf = input
   quotepath = false
   whitespace = cr-at-eol,indent-with-non-tab,blank-at-eol,space-before-tab
+  excludesfile = ~/.gitignore_global
 [color]
-	ui = true
+  ui = true
 [alias]
-  cb = checkout -b
-  cm = commit -m
-  cam = commit -a -m
-  st = status
-  di = diff
-  als = config --global --get-regexp alias
-[merge]
-	tool = diffuse
+  gst = git status
+  gdi = git diff
+  gch = git checkout
+  cam = commit -a -m 
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[user]
+  email = liberty195@gmail.com
+  name = redVi

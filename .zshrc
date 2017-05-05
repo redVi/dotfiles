@@ -24,7 +24,4 @@ alias duh="du -d 1 -h"
 alias gsl="git stash list"
 alias gss="git stash save"
 
-export LC_CTYPE="ru_RU.UTF-8"
-export LC_ALL="ru_RU.UTF-8"
-
 source "$HOME/.profile"

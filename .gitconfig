@@ -3,22 +3,28 @@
 [help]
   autocorrect = 1
 [core]
-  editor = code
-  autocrlf = input
-  quotepath = false
-  whitespace = cr-at-eol,indent-with-non-tab,blank-at-eol,space-before-tab
+  autocrlf     = input
+  quotepath    = false
+  whitespace   = cr-at-eol,indent-with-non-tab,blank-at-eol,space-before-tab
   excludesfile = ~/.gitignore_global
 [color]
   ui = true
 [alias]
-  gst = git status
-  gdi = git diff
-  gch = git checkout
-  cam = commit -a -m 
+  st           = status
+  ss           = stash save
+  sl           = stash list
+  cm           = checkout master
+  cp           = checkout production
+  cam          = commit -a -m
+  clean-merged = !git branch --merged | grep -v \"[^master|production]\" | xargs git branch -d
+  push-branch  = !git push origin `git rev-parse --abbrev-ref HEAD`
+  del-branch   = !git push origin --delete `git rev-parse --abbrev-ref HEAD`
+  aliases      = !git config --list | grep ^alias\\. | cut -c 7- | grep -Ei --color \"$1\" "#" # List aliases
+  hist         = log --pretty=\"%h - %s, %cn %cd\" --graph --since=1.weeks
 [filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
+  clean    = git-lfs clean %f
+  smudge   = git-lfs smudge %f
   required = true
 [user]
-  email = liberty195@gmail.com
-  name = redVi
+  email = user@example.com
+  name  = userName

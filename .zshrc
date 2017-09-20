@@ -4,14 +4,11 @@ export ZSH="$HOME/.oh-my-zsh"
 # Set name of the theme to load.
 ZSH_THEME="wezm"
 
-# ENABLE_CORRECTION="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Plugins
 plugins=(git)
 
 # User configuration
-export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.yarn/bin:$HOME/.node_modules/bin"
+export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.yarn/bin:$HOME/.node_modules/bin:/usr/local/bin/docker-credential-helpers"
 source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
@@ -21,15 +18,18 @@ else
   export EDITOR="code"
 fi
 
+bindkey -e
+
 # Example aliases
 alias myip="curl ipecho.net/plain; echo;"
 alias nn="npm run"
 alias archey="$HOME/Documents/archey-osx/bin/archey -c"
 alias mc="mc -S modarcon16"
 alias duh="du -d 1 -h"
-alias gsl="git stash list"
-alias gss="git stash save"
-alias gcm="git checkout master"
-alias gcp="git checkout production"
+alias bs="brew services"
+alias nu5="nvm use 5.0"
+alias chdebug="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
+alias python="python3"
+alias pyv=". $HOME/.venv/bin/activate"
 
 source "$HOME/.profile"

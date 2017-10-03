@@ -19,7 +19,7 @@
   ria          = !git rebase -i --autosquash HEAD~2
   clean-merged = !git branch --merged | egrep -v \"(master|production)\" | xargs git branch -d
   del-branch   = !git push origin --delete `git rev-parse --abbrev-ref HEAD`
-  aliases      = !git config --list | grep ^alias\\. | cut -c 7- | grep -Ei --color \"$1\" "#" # List aliases
+  aliases      = !git config --list | grep ^alias\\. | cut -c 7-
   hist         = log --pretty=\"%h - %s, %cn %cd\" --graph --since=1.weeks
 [filter "lfs"]
   clean    = git-lfs clean %f

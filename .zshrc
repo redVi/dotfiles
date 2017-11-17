@@ -8,7 +8,7 @@ ZSH_THEME="wezm"
 plugins=(git)
 
 # User configuration
-export PATH="$PATH:/usr/local/bin/docker-credential-helpers"
+export PATH="$PATH:$HOME/.npm-global/bin:/usr/local/bin/docker-credential-helpers"
 source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions

@@ -8,7 +8,7 @@ ZSH_THEME="wezm"
 plugins=(git)
 
 # User configuration
-export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.yarn/bin:$HOME/.node_modules/bin:/usr/local/bin/docker-credential-helpers"
+export PATH="$PATH:/usr/local/bin/docker-credential-helpers"
 source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
@@ -20,20 +20,20 @@ fi
 
 bindkey -e
 
-# Example aliases
+# Aliases
 alias myip="curl ipecho.net/plain; echo;"
 alias nn="npm run"
 alias archey="$HOME/Documents/archey-osx/bin/archey -c"
 alias mc="mc -S modarcon16"
 alias duh="du -d 1 -h"
+alias efix="./node_modules/.bin/eslint --fix"
+alias tree="tree -L 3 -I 'node_modules|.git'"
 alias bs="brew services"
-alias nu5="nvm use 5.0"
 alias chdebug="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
-alias python="python3"
-alias pyv=". $HOME/.venv/bin/activate"
 alias vpn-connect="sudo openconnect -b -u user_name vpn_host"
-alias vpn-unconnect="sudo kill `pgrep -f openconnect`"
+alias vpn-unconnect="sudo kill $(pgrep -f openconnect)"
 alias dstop="docker stop $(docker ps -a -q)"
 alias dstart="docker-compose up --build -d"
+alias grw="grep -rwn" # grep -rwn '/path/to/dir' -e 'some word in text'
 
 source "$HOME/.profile"

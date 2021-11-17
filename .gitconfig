@@ -1,5 +1,5 @@
 [push]
-  default = matching
+	default = upstream
 [help]
   autocorrect = 1
 [core]
@@ -16,16 +16,19 @@
   cm            = checkout master
   cp            = checkout production
   cam           = commit -a -m
-  pull-changes  = !git pull origin HEAD
   push-branch   = !git push origin $(git rev-parse --abbrev-ref HEAD)
+  pull-branch   = !git pull origin $(git rev-parse --abbrev-ref HEAD)
   del-branch    = !git push origin --delete $(git rev-parse --abbrev-ref HEAD)
   rebase-branch = !git rebase -i `git merge-base master HEAD`
   squash        = !git rebase -i --autosquash HEAD~2
   clean-merged  = !git cm && git pull && git branch --merged | egrep -v \"(master|develop)\" | xargs git branch -d
   aliases       = !git config --list | grep ^alias\\. | cut -c 7-
+  forget        = update-index --assume-unchanged
+  unforget      = update-index --no-assume-unchanged
+  forgotten     = ! git ls-files -v | grep ^[a-z]
   sub-update    = !git submodule update --init --recursive
   logfile       = !git log --follow -p -- file
-  lg            = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg = log --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit
 [filter "lfs"]
   clean    = git-lfs clean %f
   smudge   = git-lfs smudge %f

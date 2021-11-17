@@ -1,20 +1,16 @@
-export ZSH="/Users/puma/.oh-my-zsh"
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/opt/gettext/bin$PATH"
+export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="wezm"
-# sonicradish
+ZSH_THEME="wezm" # sonicradish, norm, gozilla, macovsky
 
-export UPDATE_ZSH_DAYS=30
+zstyle ':omz:update' mode reminder  # auto, disabled, reminder
+zstyle ':omz:update' frequency 30
 
-DISABLE_AUTO_TITLE="true"
-ENABLE_CORRECTION="false"
+plugins=(git)
 
-plugins=(
-  git
-  zsh-autosuggestions
-)
-
+# User configuration
 source $ZSH/oh-my-zsh.sh
+export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
+export EDITOR="vim"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -31,13 +27,15 @@ alias mc="mc -S modarcon16"
 alias duh="du -d 1 -h"
 alias tree="tree -L 3 -I 'node_modules|.git'"
 alias bs="brew services"
-alias runios="react-native run-ios --simulator=\"iPhone 12\" --configuration=debug"
-alias runios_device="react-native run-ios --simulator=\"MadCat\""
-alias runandroid="react-native run-android --variant=debug"
+alias datenum="date '+%Y-%m-%d'"
+alias runmetro="npx react-native start"
+alias runios="npx react-native run-ios --simulator=\"iPhone 13\" --configuration=debug"
+alias runandroid="npx react-native run-android --variant=debug"
 alias buildandroid="cd android && ./gradlew installRelease"
-alias runmetro="react-native start"
+alias chdebug="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222"
+alias dstart="docker-compose up --build -d"
 
-export ANDROID_HOME=/Volumes/Work/Android
+export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
